@@ -112,19 +112,31 @@ Partial Friend NotInheritable Class MySettings
             Me("steamUserName") = value
         End Set
     End Property
-    
-    <Global.System.Configuration.UserScopedSettingAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+
+    <Global.System.Configuration.UserScopedSettingAttribute(),
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+     Global.System.Configuration.DefaultSettingValueAttribute("")>
     Public Property steamPassword() As String
         Get
-            Return CType(Me("steamPassword"),String)
+            Return CType(Me("steamPassword"), String)
         End Get
         Set
             Me("steamPassword") = value
         End Set
     End Property
-    
+
+    <Global.System.Configuration.UserScopedSettingAttribute(),
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+     Global.System.Configuration.DefaultSettingValueAttribute("")>
+    Public Property steamApiKey() As String
+        Get
+            Return CType(Me("steamApiKey"), String)
+        End Get
+        Set
+            Me("steamApiKey") = Value
+        End Set
+    End Property
+
     <Global.System.Configuration.UserScopedSettingAttribute(),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Configuration.DefaultSettingValueAttribute("True")>  _

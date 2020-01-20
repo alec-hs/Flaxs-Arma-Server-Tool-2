@@ -67,6 +67,7 @@ Public Class Setup
         My.Settings.steamCMDPath = ISteamDirBox.Text
         My.Settings.steamUserName = ISteamUserBox.Text
         My.Settings.steamPassword = Encryption.Instance.EncryptData(ISteamPassBox.Password)
+        My.Settings.steamAPIKey = ISteamApiKeyBox.Text
         My.Settings.firstRun = False
 
         If IInstallSteamCheck.IsChecked Then

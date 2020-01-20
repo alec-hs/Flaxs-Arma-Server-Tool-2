@@ -5,7 +5,6 @@ Imports Newtonsoft.Json.Linq
 Namespace Models
     Public Class SteamWebApi
 
-        Private Const SteamApiKey = "1669DCBF5FD494B07B85358D12FFB85B"
         Private Const V As String = "&publishedfileids["
         Private Const V1 As String = "]="
         Private Const V2 As String = "&steamids="
@@ -19,14 +18,14 @@ Namespace Models
                 mods = mods & V & modIds.IndexOf(modId) & V1 & modId
             Next
 
-            Dim response = ApiCall("https://api.steampowered.com/IPublishedFileService/GetDetails/v1?key=" & SteamApiKey & mods)
-            
-            Return response.SelectTokens("response.publishedfiledetails[*]").Cast (Of JObject)().ToList()
+            Dim response = ApiCall("https://api.steampowered.com/IPublishedFileService/GetDetails/v1?key=" & My.Settings.SteamApiKey & mods)
+
+            Return response.SelectTokens("response.publishedfiledetails[*]").Cast(Of JObject)().ToList()
         End Function
 
         'Get mod info for single mod
         Public Shared Function GetSingleFileDetails(modId As Integer) As JObject
-            Dim response = ApiCall("https://api.steampowered.com/IPublishedFileService/GetDetails/v1?key=" & SteamApiKey & V3 & modId)
+            Dim response = ApiCall("https://api.steampowered.com/IPublishedFileService/GetDetails/v1?key=" & My.Settings.SteamApiKey & V3 & modId)
 
             Return response.SelectToken("response.publishedfiledetails[0]")
         End Function
@@ -34,7 +33,7 @@ Namespace Models
 
         'Gets user info
         Public Shared Function GetPlayerSummaries(playerId As String) As JObject
-            Dim response = ApiCall("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v1?key=" & SteamApiKey & V2 & playerId)
+            Dim response = ApiCall("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v1?key=" & My.Settings.SteamApiKey & V2 & playerId)
 
             Return response.SelectToken("response.players.player[0]")
         End Function
