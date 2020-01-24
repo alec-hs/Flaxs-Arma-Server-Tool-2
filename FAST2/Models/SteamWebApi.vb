@@ -38,32 +38,50 @@ Namespace Models
             Return response.SelectToken("response.players.player[0]")
         End Function
 
+        Public Shared Function CheckApiReady() As Boolean
+            If My.Settings.steamApiKey Is Nothing Then
+                MainWindow.Instance.IMessageDialog.IsOpen = True
+                MainWindow.Instance.IMessageDialogText.Text = "Please go to settings and enter a Steam API Key."
+                Return False
+            ElseIf My.Settings.steamApiKey Is String.Empty Then
+                MainWindow.Instance.IMessageDialog.IsOpen = True
+                MainWindow.Instance.IMessageDialogText.Text = "Please go to settings and enter a Steam API Key."
+                Return False
+            Else
+                Return True
+            End If
+        End Function
+
 
         'Calls to Steam API Endpoint and returns the result as JSON Object
         Private Shared Function ApiCall(uri As String) As JObject
-            ' Create a request for the URL. 
-            Dim request As WebRequest = WebRequest.Create(uri)
-            ' Get the response.
-            Dim response As WebResponse = Nothing
-            Try
-                response = request.GetResponse()
-            Catch ex As WebException
-                MainWindow.Instance.IMessageDialog.IsOpen = True
-                MainWindow.Instance.IMessageDialogText.Text = "Cannot reach Steam API" & Environment.NewLine & Environment.NewLine & "Check https://steamstat.us/"
-            End Try
-            ' Display the status.
-            Console.WriteLine(CType(response, HttpWebResponse).StatusDescription)
-            ' Get the stream containing content returned by the server.
-            Dim dataStream As Stream = response.GetResponseStream()
-            ' Open the stream using a StreamReader for easy access.
-            Dim reader As New StreamReader(dataStream)
-            ' Read the content.
-            Dim responseFromServer = reader.ReadToEnd()
-            ' Clean up the streams and the response.
-            reader.Close()
-            response.Close()
-            ' Return the response
-            Return JObject.Parse(responseFromServer)
+            If CheckApiReady() Then
+                ' Create a request for the URL. 
+                Dim request As WebRequest = WebRequest.Create(uri)
+                ' Get the response.
+                Dim response As WebResponse = Nothing
+                Try
+                    response = request.GetResponse()
+                Catch ex As WebException
+                    MainWindow.Instance.IMessageDialog.IsOpen = True
+                    MainWindow.Instance.IMessageDialogText.Text = "Cannot reach Steam API" & Environment.NewLine & Environment.NewLine & "Check https://steamstat.us/"
+                End Try
+                ' Display the status.
+                Console.WriteLine(CType(response, HttpWebResponse).StatusDescription)
+                ' Get the stream containing content returned by the server.
+                Dim dataStream As Stream = response.GetResponseStream()
+                ' Open the stream using a StreamReader for easy access.
+                Dim reader As New StreamReader(dataStream)
+                ' Read the content.
+                Dim responseFromServer = reader.ReadToEnd()
+                ' Clean up the streams and the response.
+                reader.Close()
+                response.Close()
+                ' Return the response
+                Return JObject.Parse(responseFromServer)
+            Else
+                Return Nothing
+            End If
         End Function
     End Class
 End NameSpace

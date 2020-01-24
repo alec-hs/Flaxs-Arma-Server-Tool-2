@@ -41,6 +41,7 @@ Class Settings
         IBaseThemeToggle.IsChecked = My.Settings.isDark
         IModUpdatesOnLaunch.IsChecked = My.Settings.checkForModUpdates
         IAppUpdatesOnLaunch.IsChecked = My.Settings.checkForAppUpdates
+        ISteamApiKeyBox.Text = My.Settings.steamApiKey
         UpdateLocalModFolders()
     End Sub
 
@@ -48,7 +49,6 @@ Class Settings
         My.Settings.localModFolders.Add(MainWindow.SelectFolder())
         UpdateLocalModFolders()
     End Sub
-
 
     Private Sub IRemoveLocalFolders_Click(sender As Object, e As RoutedEventArgs) Handles IRemoveLocalFolders.Click
         For Each folder In ILocalModFolders.SelectedItems
@@ -78,5 +78,14 @@ Class Settings
     Private Sub IUpdateApp_Click(sender As Object, e As RoutedEventArgs) Handles IUpdateApp.Click
         AutoUpdater.ReportErrors = True
         AutoUpdater.Start("https://deploy.kestrelstudios.co.uk/updates/FAST2.xml")
+    End Sub
+
+    Private Sub ISteamApiKeyBox_TextChanged(sender As Object, e As TextChangedEventArgs) Handles ISteamApiKeyBox.TextChanged
+        My.Settings.steamApiKey = ISteamApiKeyBox.Text
+        My.Settings.Save()
+    End Sub
+
+    Private Sub Settings_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+        ISteamApiKeyBox.Text = My.Settings.steamApiKey
     End Sub
 End Class

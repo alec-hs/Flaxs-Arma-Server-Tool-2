@@ -78,4 +78,8 @@ Public Class Setup
         MainWindow.Instance.Activate()
         Close()
     End Sub
+
+    Private Sub ISteamApiLink_Click(sender As Object, e As RoutedEventArgs) Handles ISteamApiLink.Click
+        Process.Start("https://steamcommunity.com/dev/apikey")
+    End Sub
 End Class

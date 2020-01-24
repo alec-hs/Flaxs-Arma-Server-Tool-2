@@ -2,6 +2,7 @@
 Imports System.Net
 Imports System.IO
 Imports System.IO.Compression
+Imports System.Threading
 Imports AutoUpdaterDotNET
 Imports FAST2.Models
 Imports WPFFolderBrowser
@@ -88,7 +89,7 @@ Public Class MainWindow
     End Sub
 
     'Handles when any menu item is selected
-    Private Sub MenuItemm_Selected(sender As ListBoxItem, e As RoutedEventArgs) Handles ISteamUpdaterTabSelect.Selected, ISteamModsTabSelect.Selected, ISettingsTabSelect.Selected, IAboutTabSelect.Selected, ILocalModsTabSelect.Selected
+    Private Sub MenuItem_Selected(sender As ListBoxItem, e As RoutedEventArgs) Handles ISteamUpdaterTabSelect.Selected, ISteamModsTabSelect.Selected, ISettingsTabSelect.Selected, IAboutTabSelect.Selected, ILocalModsTabSelect.Selected
         Dim menus As New List(Of ListBox) From {
             IMainMenuItems,
             IServerProfilesMenu,
@@ -250,7 +251,7 @@ Public Class MainWindow
 
                 IServerProfilesMenu.Items.Add(newItem)
 
-                AddHandler newItem.Selected, AddressOf MenuItemm_Selected
+                AddHandler newItem.Selected, AddressOf MenuItem_Selected
 
                 Dim duplicate = False
 
@@ -317,6 +318,10 @@ Public Class MainWindow
         ISteamPassBox.Password = Encryption.Instance.DecryptData(My.Settings.steamPassword)
         IServerDirBox.Text = My.Settings.serverPath
         IServerBranch.Text = My.Settings.serverBranch
+
+        If My.Settings.steamApiKey = String.Empty Or My.Settings.steamApiKey = Nothing Then
+            ISteamApiDialog.IsOpen = True
+        End If
     End Sub
 
 
@@ -603,5 +608,18 @@ Public Class MainWindow
             Next
             My.Settings.Save()
         End If
+    End Sub
+
+    Private Sub ISaveSteamApiKeyButton_Click(sender As Object, e As RoutedEventArgs) Handles ISaveSteamApiKeyButton.Click
+        If ISteamApiKeyBox.Text IsNot String.Empty Then
+            My.Settings.steamApiKey = ISteamApiKeyBox.Text
+            My.Settings.Save()
+            ISteamApiDialog.IsOpen = False
+            ISteamApiKeyBox.Text = String.Empty
+        End If
+    End Sub
+
+    Private Sub ISteamApiLink_Click(sender As Object, e As RoutedEventArgs) Handles ISteamApiLink.Click
+        Process.Start("https://steamcommunity.com/dev/apikey")
     End Sub
 End Class

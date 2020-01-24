@@ -57,11 +57,11 @@
 
         <StackPanel Grid.Row="1" Margin="20,10">
             <TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,5">
-               Welcome to FAST2 - an unoffical Arma 3 server updater. Use the form below to setup a few options.
+               Welcome to FAST2 - an unofficial Arma 3 server updater. Use the form below to setup a few options. You need a Steam API Key, click <Hyperlink Name="ISteamApiLink">here</Hyperlink> to create one.
             </TextBlock>
             <TextBox Name="ISteamUserBox" materialDesign:HintAssist.Hint="Steam Username" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" Margin="0,10"/>
             <PasswordBox Name="ISteamPassBox" materialDesign:HintAssist.Hint="Steam Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" Margin="0,10"/>
-            <TextBox Name="ISteamAPIKeyBox" materialDesign:HintAssist.Hint="Steam API Key" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" Margin="0,10"/>
+            <TextBox Name="ISteamApiKeyBox" materialDesign:HintAssist.Hint="Steam API Key" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" Margin="0,10"/>
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <TextBox Name="ISteamDirBox"  materialDesign:HintAssist.Hint="Steam Install Directory" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" Width="225" Margin="0,0,0,5"/>
                 <Button Name="ISteamDirButton" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20" Margin="10,0,0,0">
