@@ -1,6 +1,5 @@
 # Flax's Arma Server Tool 2 (FAST2)
-
-[Discord Here](https://discord.gg/tkS4evC).
+<p align="center"><a href="https://links.kestrelstudios.co.uk/fast2-github"><img src="https://i.gyazo.com/d64f1c16537a02adc6f86f91002af757.png" alt="GitHub"></a> <a href="https://links.kestrelstudios.co.uk/fast2-forums"><img src="https://i.gyazo.com/b8f9759b7127fc610ce7f15c8012b47d.png" alt="BI Forums"></a> <a href="https://links.kestrelstudios.co.uk/fast2-discord"><img src="https://i.gyazo.com/e892f4efc8615e686a2766f627c5da96.png" alt="Discord"></a></p>
 
 **INTRO**
 
@@ -75,3 +74,5 @@ Can be found on the FAST2 part of my site, here. This will be updated continuous
 - Schedule Auto Update of mods and server
 
 ---
+
+<p align="center"><a href="https://links.kestrelstudios.co.uk/fast2-github"><img src="https://i.gyazo.com/d64f1c16537a02adc6f86f91002af757.png" alt="GitHub"></a> <a href="https://links.kestrelstudios.co.uk/fast2-forums"><img src="https://i.gyazo.com/b8f9759b7127fc610ce7f15c8012b47d.png" alt="BI Forums"></a> <a href="https://links.kestrelstudios.co.uk/fast2-discord"><img src="https://i.gyazo.com/e892f4efc8615e686a2766f627c5da96.png" alt="Discord"></a></p>
