@@ -369,117 +369,103 @@ Public Class MainWindow
         File.Delete(zip)
     End Sub
 
+    Private Shared _runLog As Boolean
+    Private Shared ReadOnly RunLogLock As Object = New Object()
+    Private Shared _threadSlept As Integer
+
     Private Sub UpdateTextBox(text As String)
-        If _oProcess IsNot Nothing Then
+        If _oProcess Is Nothing Then Return
+        Dispatcher.Invoke(
+            Sub()
+                ISteamOutputBox.AppendText(text)
+                ISteamOutputBox.ScrollToEnd()
+            End Sub
+        )
+
+        If text.StartsWith("Logging in user ") Then
+            _runLog = True
+            Dim t = New Thread(
+                Sub()
+                    _threadSlept = 0
+                    Dim localRunThread As Boolean
+
+                    Do
+                        Thread.Sleep(500)
+                        _threadSlept += 500
+
+                        SyncLock RunLogLock
+                            localRunThread = _runLog
+                        End SyncLock
+                    Loop While localRunThread AndAlso _threadSlept < 7000
+
+                    If localRunThread Then
+                        Dispatcher.Invoke(
+                            Sub()
+                                ISteamGuardDialog.IsOpen = True
+                                ISteamGuardCode.Text = Nothing
+                            End Sub
+                        )
+                    End If
+                End Sub
+            )
+            t.Start()
+        End If
+
+        If text.Contains("Logged in OK") Then
+
+            SyncLock RunLogLock
+                _runLog = False
+            End SyncLock
+        End If
+
+        If text.StartsWith("Retrying...") Then
+            _threadSlept = 0
+        End If
+
+        If text.EndsWith("...") Then
+            Dispatcher.Invoke(
+                Sub()
+                    ISteamOutputBox.AppendText(Environment.NewLine)
+                End Sub
+            )
+        End If
+
+        If text.Contains("Update state") Then
+            Dim counter As Integer = text.IndexOf(":", StringComparison.Ordinal)
+            Dim progress As String = text.Substring(counter + 2, 2)
+            Dim progressValue As Integer
+
+            If progress.Contains(".") Then
+                Integer.TryParse(progress.Substring(0, 1), progressValue)
+            Else
+                Integer.TryParse(progress, progressValue)
+            End If
 
             Dispatcher.Invoke(
                 Sub()
-                    ISteamOutputBox.AppendText(text & Environment.NewLine)
-                    ISteamOutputBox.ScrollToEnd()
+                    ISteamProgressBar.IsIndeterminate = False
+                    ISteamProgressBar.Value = progressValue
                 End Sub
             )
+        End If
 
-            If text Like "*at the console." Then
-                Dispatcher.Invoke(
-                    Sub()
-                        ISteamGuardDialog.IsOpen = True
-                    End Sub
-                )
-            End If
+        If text.Contains("Success") Then
+            Dispatcher.Invoke(
+                Sub()
+                    ISteamProgressBar.Value = 100
+                End Sub
+            )
+        End If
 
-            If text Like "*..." Then
-                Dispatcher.Invoke(
-                    Sub()
-                        ISteamOutputBox.AppendText(Environment.NewLine)
-                    End Sub
-                    )
-            End If
-
-            If text Like "*Mobile Authenticator*" Then
-                Dispatcher.Invoke(
-                    Sub()
-                        ISteamGuardDialog.IsOpen = True
-                    End Sub
-                )
-            End If
-
-            If text Like "*Update state*" Then
-                Dim counter As Integer = text.IndexOf(":", StringComparison.Ordinal)
-                Dim progress As String = text.Substring(counter + 2, 2)
-                Dim progressValue As Integer
-
-                If progress.Contains(".") Then
-                    progressValue = progress.Substring(0, 1)
-                Else
-                    progressValue = progress
-                End If
-                Dispatcher.Invoke(
-                    Sub()
-                        ISteamProgressBar.IsIndeterminate = False
-                        ISteamProgressBar.Value = progressValue
-                    End Sub
-                    )
-            End If
-
-            If text Like "*Success*" Then
-                Dispatcher.Invoke(
-                    Sub()
-                        ISteamProgressBar.Value = 100
-                    End Sub
-                    )
-            End If
-
-            If text Like "*Timeout*" Then
-                Dispatcher.Invoke(
-                    Sub()
-                        Instance.IMessageDialog.IsOpen = True
-                        Instance.IMessageDialogText.Text = "A Steam Download timed out. You may have to download again when task is complete."
-                    End Sub
-                    )
-            End If
+        If text.Contains("Timeout") Then
+            Dispatcher.Invoke(
+                Sub()
+                    Instance.IMessageDialog.IsOpen = True
+                    Instance.IMessageDialogText.Text = "A Steam Download timed out. You may have to download again when task is complete."
+                End Sub
+            )
         End If
     End Sub
-
-    ''PART OF OLD STEAM OUTPUT CODE
-    ''Private Sub Proc_OutputDataReceived(sender As Object, e As DataReceivedEventArgs)
-    ''    UpdateTextBox(e.Data)
-    ''End Sub
-
-    Private Sub ProcessOutputCharacters(streamReader As StreamReader)
-        Dim outputCharInt As Integer
-        Dim outputChar As Char
-        Dim line As String = String.Empty
-
-        Do
-            outputCharInt = streamReader.Read()
-            If outputCharInt <> -1 Then
-                outputChar = Chr(outputCharInt)
-                If outputCharInt = 10 Or outputCharInt = 13 Then
-                    If line IsNot String.Empty Then
-                        If Not line Like "\src\common\contentmanifest.cpp (650) : Assertion Failed: !m_bIsFinalized*" Then
-                            UpdateTextBox(line)
-                        End If
-                    End If
-                    line = String.Empty
-                ElseIf line.Length > 7 Then
-                    If line.Substring(line.Length - 3) = " .." Then
-                        line = Environment.NewLine & line
-                        UpdateTextBox(line)
-                        line = String.Empty
-                    ElseIf line.Substring(line.Length - 6) = "bytes)" Then
-                        line = Environment.NewLine & line
-                        UpdateTextBox(line)
-                        line = String.Empty
-                    Else
-                        line += outputChar
-                    End If
-                Else
-                    line += outputChar
-                End If
-            End If
-        Loop While Not streamReader.EndOfStream
-    End Sub
-
 
     'Runs Steam command via SteamCMD and redirects input and output to FAST
     Public Async Sub RunSteamCommand(steamCmd As String, steamCommand As String, type As String, Optional modIds As List(Of String) = Nothing)
@@ -508,7 +494,7 @@ Public Class MainWindow
                 clear = False
             End If
 
-            If clear
+            If clear Then
                 ISteamOutputBox.Document.Blocks.Clear()
             End If
 
@@ -524,17 +510,10 @@ Public Class MainWindow
                     _oProcess.StartInfo.RedirectStandardInput = True
                     _oProcess.EnableRaisingEvents = True
 
-                    ''PART OF OLD STEAM OUTPUT CODE
-                    ''AddHandler _oProcess.ErrorDataReceived, AddressOf Proc_OutputDataReceived
-                    ''AddHandler _oProcess.OutputDataReceived, AddressOf Proc_OutputDataReceived
-
-                    _oProcess.start()
+                    _oProcess.Start()
 
                     ProcessOutputCharacters(_oProcess.StandardError)
                     ProcessOutputCharacters(_oProcess.StandardOutput)
-                    ''PART OF OLD STEAM OUTPUT CODE
-                    ''_oProcess.BeginErrorReadLine()
-                    ''_oProcess.BeginOutputReadLine()
 
                     _oProcess.WaitForExit()
 
@@ -565,7 +544,7 @@ Public Class MainWindow
                     CheckModUpdatesComplete(modIds)
                 ElseIf type Is "server" Then
                     Instance.IMessageDialog.IsOpen = True
-                    Instance.IMessageDialogText.Text = "Server Installed/ Updated."
+                    Instance.IMessageDialogText.Text = "Steam Action Completed."
                 ElseIf type Is "install" Then
                     Instance.IMessageDialog.IsOpen = True
                     Instance.IMessageDialogText.Text = "SteamCMD Installed."
@@ -581,6 +560,29 @@ Public Class MainWindow
             IMessageDialog.IsOpen = True
             IMessageDialogText.Text = "Please check that SteamCMD is installed and that all fields are correct:" & Environment.NewLine & Environment.NewLine & Environment.NewLine & "   -  Steam Dir" & Environment.NewLine & Environment.NewLine & "   -  User Name & Pass" & Environment.NewLine & Environment.NewLine & "   -  Server Dir"
         End If
+    End Sub
+
+    Private Sub ProcessOutputCharacters(output As StreamReader)
+        Dim line As String = String.Empty
+
+        While Not output.EndOfStream
+            Dim lineChar = output.Read()
+
+            Select Case lineChar
+                Case 13, 10
+                    line += Chr(lineChar)
+                    UpdateTextBox(line)
+                    line = String.Empty
+                Case -1
+                    Exit Select
+                Case Else
+                    line += Chr(lineChar)
+            End Select
+
+            'If line IsNot Nothing AndAlso Not line.Contains("\src\common\contentmanifest.cpp (650) : Assertion Failed: !m_bIsFinalized*") Then
+            '    UpdateTextBox(line)
+            'End If
+        End While
     End Sub
 
     Private Shared Sub CheckModUpdatesComplete(modIds As IReadOnlyCollection(Of String))
