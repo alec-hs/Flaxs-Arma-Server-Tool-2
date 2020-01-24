@@ -1,19 +1,39 @@
 # Flax's Arma Server Tool 2 (FAST2)
 
-
-**CURRENTLY IN CLOSED BETA TESTING**
-
 [Discord Here](https://discord.gg/tkS4evC).
 
 **INTRO**
 
 FAST2 is an extensive rewrite of FAST. The UI needed updating and the code was messy and inefficient. This new and hopefully improved version has more features and better stability than FAST. As before I decided to build FAST to help automate and speed up the deployment of Arma 3 servers on Windows. Thanks go out to all the guys who helped test this version before release with special mentions to Kju and JamieKG for their continuous bug reports and testing. Also, to BI for giving us an awesome game to play with and break.
 
+---
+
 **PREREQUISITES**
 
 - Steam account with valid copy of Arma 3.
 - Basic understanding of Arma 3 dedicated servers.
 
+
+**DOWNLOAD LATEST VERSION**
+
+https://deploy.kestrelstudios.co.uk/updates/FAST2/FAST2-latest.zip
+ 
+
+**SETUP & INSTALLATION**
+
+[Follow the instructions on the Wiki.](https://github.com/alec-hs/Flaxs-Arma-Server-Tool-2/wiki/Setup-&-Installation)
+
+---
+
+**_ISSUES &amp; FEEDBACK_**
+
+As always best place to report issues is on the GitHub Repo, as for general discussion I&#39;ll always keep an eye on this thread or come and join us in Discord.
+
+**_DOCUMENTATION_**
+  
+Can be found on the FAST2 part of my site, here. This will be updated continuously as new features are added and others changed.
+  
+---
 
 **_FEATURES_**
 
@@ -54,11 +74,4 @@ FAST2 is an extensive rewrite of FAST. The UI needed updating and the code was m
 - Schedule Auto Restart of servers
 - Schedule Auto Update of mods and server
 
-**_ISSUES &amp; FEEDBACK_**
-
-As always best place to report issues is on the GitHub Repo, as for general discussion I&#39;ll always keep an eye on this thread or come and join us in Discord.
-
-**_DOCUMENTATION_**
-  
-Can be found on the FAST2 part of my site, here. This will be updated continuously as new features are added and others changed.
-  
+---
