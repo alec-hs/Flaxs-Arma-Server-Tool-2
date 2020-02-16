@@ -6,10 +6,6 @@ Public Class Setup
     Private Sub Setup_Initialized(sender As Object, e As EventArgs) Handles MyBase.Initialized
         My.Settings.Upgrade()
 
-        Theme.ApplyPrimary(My.Settings.primaryColour)
-        Theme.ApplyAccent(My.Settings.accentColour)
-        Theme.SwitchBase(My.Settings.isDark)
-
         If Not My.Settings.firstRun Then
             MainWindow.Instance.Show()
             MainWindow.Instance.Activate()

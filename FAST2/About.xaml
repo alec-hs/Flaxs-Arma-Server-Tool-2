@@ -35,7 +35,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Style="{StaticResource MaterialDesignHeadlineTextBlock}" Margin="16">About FAST2</TextBlock>
+                <TextBlock Grid.Row="0" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Margin="16">About FAST2</TextBlock>
                 <TextBlock Grid.Row="0" Name="IVersionLabel" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="16">Version:</TextBlock>
                 <TextBlock Grid.Row="1" Margin="16,0" TextWrapping="Wrap" FontSize="13" TextAlignment="Justify">
                     FAST2 is an extensive rewrite of FAST, which was a project I started to help automate and speed 
@@ -65,7 +65,7 @@
                 </Grid.ColumnDefinitions>
                 <materialDesign:PackIcon Kind="Support" Width="172" Height="172" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <StackPanel Grid.Row="0" Grid.Column="1">
-                    <TextBlock Style="{StaticResource MaterialDesignHeadlineTextBlock}" Margin="16 16 16 8">Support</TextBlock>
+                    <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="16 16 16 8">Support</TextBlock>
                     <TextBlock TextWrapping="Wrap" Margin="16 0 16 8" Foreground="{DynamicResource MaterialDesignBodyLight}" VerticalAlignment="Top">Come and discuss the tool, make suggestions or report issues using one of these channels:</TextBlock>
                 </StackPanel>
                 <Border Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}" Padding="8">
@@ -110,7 +110,7 @@
                 </Grid.ColumnDefinitions>
                 <materialDesign:PackIcon Kind="GithubCircle" Width="172" Height="172" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <StackPanel Grid.Row="0" Grid.Column="1">
-                    <TextBlock Style="{StaticResource MaterialDesignHeadlineTextBlock}" Margin="16 16 16 8">Open Source</TextBlock>
+                    <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="16 16 16 8">Open Source</TextBlock>
                     <TextBlock TextWrapping="Wrap" Margin="16 0 16 8" Foreground="{DynamicResource MaterialDesignBodyLight}"
                                            VerticalAlignment="Top">This project is completely open source. If you like it and want to say thanks you could hit the GitHub Star button, or contribute if you can!</TextBlock>
                 </StackPanel>

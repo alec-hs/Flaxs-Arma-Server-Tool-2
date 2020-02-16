@@ -4,24 +4,22 @@ Imports FAST2.Models
 Class Settings
     'Switches base theme between light and dark when control is switched 
     Private Sub IBaseThemeButton_Click(sender As Object, e As RoutedEventArgs) Handles IBaseThemeToggle.Click
-        Theme.SwitchBase(IBaseThemeToggle.IsChecked)
+        AppTheme.SwitchBase(IBaseThemeToggle.IsChecked)
         MainWindow.Instance.IWindowCloseButton.Background = FindResource("MaterialDesignPaper")
     End Sub
 
-    Private Shared Sub PrimaryColour_Click(sender As Button,  e As RoutedEventArgs) Handles  IYellowP.Click, IAmberP.Click ,IDeepOrangeP.Click, ILightBlueP.Click, ITealP.Click, ICyanP.Click, IPinkP.Click, IGreenP.Click, IDeepPurpleP.Click, IIndigoP.Click, ILightGreenP.Click, IBlueP.Click, ILimeP.Click, IRedP.Click, IOrangeP.Click, IPurpleP.Click, IBlueGreyP.Click, IGreyP.Click
-        Dim colour As String = sender.Name
-        colour = colour.Substring(1, colour.Length - 2)
+    Private Shared Sub PrimaryColour_Click(sender As Button, e As RoutedEventArgs) Handles IYellowP.Click, IAmberP.Click, IDeepOrangeP.Click, ILightBlueP.Click, ITealP.Click, ICyanP.Click, IPinkP.Click, IGreenP.Click, IDeepPurpleP.Click, IIndigoP.Click, ILightGreenP.Click, IBlueP.Click, ILimeP.Click, IRedP.Click, IOrangeP.Click, IPurpleP.Click, IBlueGreyP.Click, IGreyP.Click
+        Dim colour As String = sender.Background.ToString
 
-        Theme.ApplyPrimary(colour)
+        AppTheme.ApplyPrimary(colour)
         My.Settings.primaryColour = colour
         My.Settings.Save()
     End Sub
 
-    Private Shared Sub AccentColour_Click(sender As Button,  e As RoutedEventArgs) Handles IYellowA.Click, IAmberA.Click, IDeepOrangeA.Click, ILightBlueA.Click, ITealA.Click, ICyanA.Click, IPinkA.Click, IGreenA.Click, IDeepPurpleA.Click, IIndigoA.Click, ILightGreenA.Click, IBlueA.Click, ILimeA.Click, IRedA.Click, IOrangeA.Click, IPurpleA.Click
-        Dim colour As String = sender.Name
-        colour = colour.Substring(1,colour.Length-2)
+    Private Shared Sub AccentColour_Click(sender As Button, e As RoutedEventArgs) Handles IYellowA.Click, IAmberA.Click, IDeepOrangeA.Click, ILightBlueA.Click, ITealA.Click, ICyanA.Click, IPinkA.Click, IGreenA.Click, IDeepPurpleA.Click, IIndigoA.Click, ILightGreenA.Click, IBlueA.Click, ILimeA.Click, IRedA.Click, IOrangeA.Click, IPurpleA.Click
+        Dim colour As String = sender.Background.ToString
 
-        Theme.ApplyAccent(colour)
+        AppTheme.ApplyAccent(colour)
         My.Settings.accentColour = colour
         My.Settings.Save()
     End Sub
@@ -29,7 +27,7 @@ Class Settings
     Private Sub IClearSettings_Click(sender As Object, e As RoutedEventArgs) Handles IClearSettings.Click
         IResetDialog.IsOpen = True
     End Sub
-    
+
     Private Sub IResetButton_Click(sender As Object, e As RoutedEventArgs) Handles IResetButton.Click
         My.Settings.clearSettings = true
         Forms.Application.Restart()
@@ -52,7 +50,7 @@ Class Settings
 
     Private Sub IRemoveLocalFolders_Click(sender As Object, e As RoutedEventArgs) Handles IRemoveLocalFolders.Click
         For Each folder In ILocalModFolders.SelectedItems
-           My.Settings.localModFolders.Remove(folder)
+            My.Settings.localModFolders.Remove(folder)
         Next
         UpdateLocalModFolders()
     End Sub

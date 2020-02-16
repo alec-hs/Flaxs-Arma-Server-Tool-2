@@ -43,6 +43,7 @@ Public Class MainWindow
 
     Private Sub MainWindow_Initialized(sender As Object, e As EventArgs) Handles Me.Initialized
         Functions.CheckSettings()
+        AppTheme.ApplyTheme()
         LoadServerProfiles()
         LoadSteamUpdaterSettings()
     End Sub
