@@ -564,25 +564,10 @@ Public Class MainWindow
     End Sub
 
     Private Sub ProcessOutputCharacters(output As StreamReader)
-        Dim line As String = String.Empty
+        Dim line = ""
 
         While Not output.EndOfStream
-            Dim lineChar = output.Read()
-
-            Select Case lineChar
-                Case 13, 10
-                    line += Chr(lineChar)
-                    UpdateTextBox(line)
-                    line = String.Empty
-                Case -1
-                    Exit Select
-                Case Else
-                    line += Chr(lineChar)
-            End Select
-
-            'If line IsNot Nothing AndAlso Not line.Contains("\src\common\contentmanifest.cpp (650) : Assertion Failed: !m_bIsFinalized*") Then
-            '    UpdateTextBox(line)
-            'End If
+            UpdateTextBox(output.ReadLine)
         End While
     End Sub
 
