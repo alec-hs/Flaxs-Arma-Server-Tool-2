@@ -171,6 +171,7 @@
 
                         <ComboBox Name="IServerBranch" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Version" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Foreground="{DynamicResource MaterialDesignBody}" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" Margin="10,10,10,15">
                             <ComboBoxItem Content="Stable"/>
+                            <ComboBoxItem Content="Creator DLC"/>
                             <ComboBoxItem Content="Development"/>
                         </ComboBox>
                         <Button Name="ISteamUpdateButton" Style="{StaticResource MaterialDesignRaisedAccentButton}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Content="Update" Margin="10,5,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>

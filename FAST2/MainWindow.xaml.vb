@@ -80,6 +80,8 @@ Public Class MainWindow
 
         If IServerBranch.Text = "Stable" Then
             branch = "233780"
+        ElseIf IServerBranch.Text = "Creator DLC" Then
+            branch = "233780 -beta creatordlc"
         Else
             branch = "107410 -beta development"
         End If
