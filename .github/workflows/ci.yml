@@ -1,0 +1,23 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: git checkout
+      uses: actions/checkout@v2
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1
+    - name: Setup nuget
+      uses: nuget/setup-nuget@v1
+    - name: Nuget restore
+      run: nuget restore
+    - name: Build solution
+      run: msbuild /p:Configuration=Release
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: FAST2
+        path: FAST2/bin/Release
