@@ -685,11 +685,11 @@ Class ServerProfile
         End If
 
         If IVotingEnabled.IsChecked Then
-            configLines.Add("allowedVoteCmds[] = {};")
-            configLines.Add("allowedVotedAdminCmds[] = {};")
             configLines.Add("voteMissionPlayers = " & IVotingMinPlayers.Text & ";")
             configLines.Add("voteThreshold = " & IVotingThreshold.Text / 100 & ";")
         Else
+            configLines.Add("allowedVotedAdminCmds[] = {};")
+            configLines.Add("allowedVoteCmds[] = {};")
             configLines.Add("voteMissionPlayers = 1;")
             configLines.Add("voteThreshold = 0;")
         End If
