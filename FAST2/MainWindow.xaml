@@ -66,7 +66,7 @@
         </ListBox>
 
         <!--Menu Column - Main Items-->
-        <StackPanel Grid.Column="0" Grid.Row="1" TextElement.FontSize="13">
+        <StackPanel Name="IMainStack"  Grid.Column="0" Grid.Row="1" TextElement.FontSize="13">
             <Label  Content="Main" Margin="10,10,0,0" FontWeight="Bold" FontStyle="Italic"/>
             <ListBox Name="IMainMenuItems" HorizontalAlignment="Stretch" Margin="0,0,0,10">
                 <ListBoxItem Name="ISteamUpdaterTabSelect" Content="Steam Updater"/>
@@ -76,7 +76,7 @@
         </StackPanel>
 
         <!--Menu Column - Server Profiles-->
-        <StackPanel Grid.Column="0" Grid.Row="2" TextElement.FontSize="13">
+        <StackPanel Name="IServerProfilesStack" Grid.Column="0" Grid.Row="2" TextElement.FontSize="13">
             <Rectangle Fill="Black" Height="2"/>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -88,12 +88,11 @@
                     <materialDesign:PackIcon Kind="Plus" Height="10" Width="10" />
                 </Button>
             </Grid>
-
-            <ListBox Name="IServerProfilesMenu" HorizontalAlignment="Stretch" Margin="0,0,0,10"/>
+            <ListBox VerticalAlignment="Stretch" Name="IServerProfilesMenu" HorizontalAlignment="Stretch" Margin="0,0,0,10" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
         </StackPanel>
 
         <!--Menu Column - Other Items-->
-        <StackPanel Grid.Column="0" Grid.Row="3" TextElement.FontSize="13">
+        <StackPanel Name="IOtherStack" Grid.Column="0" Grid.Row="3" TextElement.FontSize="13">
             <Rectangle Fill="Black" Height="2"/>
             <Label Content="Other" Margin="10,10,0,0" FontWeight="Bold" FontStyle="Italic" />
             <ListBox Name="IOtherMenuItems" HorizontalAlignment="Stretch" Margin="0,0,0,10">

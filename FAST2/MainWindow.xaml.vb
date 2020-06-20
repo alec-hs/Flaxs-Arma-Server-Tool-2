@@ -48,6 +48,12 @@ Public Class MainWindow
         LoadSteamUpdaterSettings()
     End Sub
 
+    Private Sub MainWindow_LayoutUpdated(sender As Object, e As EventArgs) Handles Me.LayoutUpdated
+        If ActualHeight > 0 Then
+            IServerProfilesMenu.MaxHeight = Me.ActualHeight - IWindowDragBar.ActualHeight - IMainStack.ActualHeight - IOtherStack.ActualHeight - 40
+        End If
+    End Sub
+
     Private Sub MainWindow_Loaded(sender As Object, e As EventArgs) Handles Me.Loaded
         If My.Settings.checkForAppUpdates Then
             AutoUpdater.Start("https://deploy.kestrelstudios.co.uk/updates/FAST2.xml")
