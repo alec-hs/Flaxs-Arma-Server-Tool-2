@@ -1014,7 +1014,7 @@ Class ServerProfile
 
             For Each mission In Directory.GetFiles(My.Settings.serverPath & "\mpmissions", "*.sqm", IO.SearchOption.AllDirectories)
                 mission = Replace(mission, My.Settings.serverPath & "\mpmissions\", "")
-                newMissions.Add(mission.Replace(".sqm", ""))
+                newMissions.Add(mission.Replace("\mission.sqm", ""))
             Next
 
             For Each mission In newMissions.ToList
