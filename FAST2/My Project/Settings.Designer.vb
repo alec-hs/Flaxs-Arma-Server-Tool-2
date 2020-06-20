@@ -174,7 +174,7 @@ Partial Friend NotInheritable Class MySettings
 
     <Global.System.Configuration.UserScopedSettingAttribute(),
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-     Global.System.Configuration.DefaultSettingValueAttribute("True")>
+     Global.System.Configuration.DefaultSettingValueAttribute("False")>
     Public Property checkForModUpdates() As Boolean
         Get
             Return CType(Me("checkForModUpdates"), Boolean)
@@ -196,9 +196,9 @@ Partial Friend NotInheritable Class MySettings
         End Set
     End Property
 
-    <Global.System.Configuration.UserScopedSettingAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("LightBlue")>  _
+    <Global.System.Configuration.UserScopedSettingAttribute(),
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+     Global.System.Configuration.DefaultSettingValueAttribute("#FF03A9F4")>
     Public Property primaryColour() As String
         Get
             Return CType(Me("primaryColour"),String)
@@ -207,10 +207,10 @@ Partial Friend NotInheritable Class MySettings
             Me("primaryColour") = value
         End Set
     End Property
-    
-    <Global.System.Configuration.UserScopedSettingAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("LightBlue")>  _
+
+    <Global.System.Configuration.UserScopedSettingAttribute(),
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+     Global.System.Configuration.DefaultSettingValueAttribute("#FF03A9F4")>
     Public Property accentColour() As String
         Get
             Return CType(Me("accentColour"),String)
