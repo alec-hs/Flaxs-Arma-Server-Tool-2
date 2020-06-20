@@ -190,9 +190,9 @@ Public Class MainWindow
     Private Sub ICreateProfileButton_Click(sender As Object, e As RoutedEventArgs) Handles ICreateProfileButton.Click
         INewProfileName.Text = INewProfileName.Text.Trim()
 
-        If INewProfileName.Text = String.Empty Then
+        If INewProfileName.Text = String.Empty Or INewProfileName.Text Like "*__*" Then
             IMessageDialog.IsOpen = True
-            IMessageDialogText.Text = "Please use a suitable profile name."
+            IMessageDialogText.Text = "Please use a suitable profile name. No double underscores."
         Else
             Mouse.OverrideCursor = Cursors.Wait
             Dim profileName = INewProfileName.Text
