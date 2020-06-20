@@ -1009,12 +1009,12 @@ Class ServerProfile
         If Directory.Exists(My.Settings.serverPath & "\mpmissions") Then
             For Each mission In Directory.GetFiles(My.Settings.serverPath & "\mpmissions", "*.pbo")
                 mission = Replace(mission, My.Settings.serverPath & "\mpmissions\", "")
-                newMissions.Add(mission.Replace(".pbo", " (PBO)"))
+                newMissions.Add(mission.Replace(".pbo", ""))
             Next
 
             For Each mission In Directory.GetFiles(My.Settings.serverPath & "\mpmissions", "*.sqm", IO.SearchOption.AllDirectories)
                 mission = Replace(mission, My.Settings.serverPath & "\mpmissions\", "")
-                newMissions.Add(mission.Replace(".sqm", " (SQM)"))
+                newMissions.Add(mission.Replace(".sqm", ""))
             Next
 
             For Each mission In newMissions.ToList
