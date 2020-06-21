@@ -618,4 +618,18 @@ Public Class MainWindow
     Private Sub ISteamApiLink_Click(sender As Object, e As RoutedEventArgs) Handles ISteamApiLink.Click
         Process.Start("https://steamcommunity.com/dev/apikey")
     End Sub
+
+
+    Private Sub OnKeyDownHandler(sender As Object, e As KeyEventArgs)
+        Dim oStreamWriter = _oProcess.StandardInput
+
+        If e.Key = Key.Enter Then
+            Dispatcher.Invoke(
+                Sub()
+                    oStreamWriter.Write(ISteamGuardCode.Text & Environment.NewLine)
+                End Sub
+                )
+            ISteamGuardDialog.IsOpen = False
+        End If
+    End Sub
 End Class

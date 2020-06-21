@@ -295,9 +295,9 @@
                         <TextBlock TextWrapping="Wrap" TextAlignment="Left" Margin="0,0,0,5">
                             Enter Steam Guard code from email or mobile app.
                         </TextBlock>
-                        <TextBox Name="ISteamGuardCode" materialDesign:HintAssist.Hint="Steam Guard Code" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="{DynamicResource PrimaryHueDarkBrush}"/>
+                        <TextBox Name="ISteamGuardCode" KeyDown="OnKeyDownHandler" materialDesign:HintAssist.Hint="Steam Guard Code" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="{DynamicResource PrimaryHueDarkBrush}"/>
                         <DockPanel Margin="0,10">
-                            <Button Name="ISubmitCode" Content="Submit" HorizontalAlignment="Right" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=ISteamGuardDialog}"/>
+                            <Button Name="ISubmitCode" IsDefault="true" Content="Submit" HorizontalAlignment="Right" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=ISteamGuardDialog}"/>
                         </DockPanel>
                     </StackPanel>
                 </Grid>
