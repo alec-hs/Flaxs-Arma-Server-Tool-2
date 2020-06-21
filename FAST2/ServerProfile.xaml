@@ -764,6 +764,12 @@
                 </ListBoxItem.ToolTip>
                 <materialDesign:PackIcon Kind="Pencil" />
             </ListBoxItem>
+            <ListBoxItem Name="IDuplicateProfile">
+                <ListBoxItem.ToolTip>
+                    <TextBlock>Duplicate</TextBlock>
+                </ListBoxItem.ToolTip>
+                <materialDesign:PackIcon Kind="ContentCopy" />
+            </ListBoxItem>
             <ListBoxItem Name="IDeleteProfile">
                 <ListBoxItem.ToolTip>
                     <TextBlock>Delete</TextBlock>
