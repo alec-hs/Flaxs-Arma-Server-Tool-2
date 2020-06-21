@@ -29,12 +29,6 @@
     <Setting Name="clearSettings" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="primaryColour" Type="System.String" Scope="User">
-      <Value Profile="(Default)">LightBlue</Value>
-    </Setting>
-    <Setting Name="accentColour" Type="System.String" Scope="User">
-      <Value Profile="(Default)">LightBlue</Value>
-    </Setting>
     <Setting Name="serverBranch" Type="System.String" Scope="User">
       <Value Profile="(Default)">Stable</Value>
     </Setting>
@@ -50,8 +44,14 @@
     <Setting Name="excludeServerFolder" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="primaryColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FF03A9F4</Value>
+    </Setting>
+    <Setting Name="accentColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FF03A9F4</Value>
+    </Setting>
     <Setting Name="checkForModUpdates" Type="System.String" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

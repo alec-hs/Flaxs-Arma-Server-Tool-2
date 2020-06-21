@@ -4,8 +4,6 @@ Namespace Models
 
     <Serializable()>
     Public Class SteamMod
-        Private Sub New()
-        End Sub
 
         Private Sub New(workshopId As Int32, name As String, author As String, steamLastUpdated As Int32, Optional privateMod As Boolean = False)
             Me.WorkshopId = workshopId
