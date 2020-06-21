@@ -187,6 +187,8 @@ Namespace Models
         Public Property OnHackedData As String = String.Empty
         Public Property OnDifferentData As String = String.Empty
         Public Property OnUnsignedData As String = String.Empty
+        Public Property AllowedVoteCmds As String = String.Empty
+        Public Property AllowedVotedAdminCmds As String = String.Empty
         Public Property RegularCheck As String = String.Empty
         Public Property BattleEye As Boolean = True
     End Class

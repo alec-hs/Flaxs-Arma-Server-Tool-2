@@ -37,7 +37,6 @@ Class ServerProfile
         'IDailyRestartA.SelectedTime = profile.DailyRestartA
         'IDailyRestartBEnabled.IsChecked = profile.DailyRestartBEnabled
         'IDailyRestartB.Text = profile.DailyRestartB
-        IVotingEnabled.IsChecked = profile.VotingEnabled
         IVotingMinPlayers.Text = profile.VotingMinPlayers
         IVotingThreshold.Text = profile.VotingThreshold
         IAllowFilePatching.Text = profile.AllowFilePatching
@@ -117,6 +116,8 @@ Class ServerProfile
         IOnDifferentData.Text = profile.OnDifferentData
         IOnUnsignedData.Text = profile.OnUnsignedData
         IRegularCheck.Text = profile.RegularCheck
+        IAllowedVoteCmds.Text = profile.AllowedVoteCmds
+        IAllowedVotedAdminCmds.Text = profile.AllowedVotedAdminCmds
         IServerModsList.SelectedValue = profile.ServerMods
         IClientModsList.SelectedValue = profile.ClientMods
         IHeadlessModsList.SelectedValue = profile.HeadlessMods
@@ -127,7 +128,6 @@ Class ServerProfile
         ToggleUi(IHeadlessClientEnabled)
         'ToggleUi(IAutoRestartEnabled)
         ToggleUi(IVonEnabled)
-        ToggleUi(IVotingEnabled)
         ToggleUi(IServerConsoleLogEnabled)
         ToggleUi(IPidEnabled)
         ToggleUi(IRankingEnabled)
@@ -222,7 +222,7 @@ Class ServerProfile
         thread.Start()
     End Sub
 
-    Private Sub ToggleUi(uiElement As Object, Optional e As RoutedEventArgs = Nothing) Handles IHeadlessClientEnabled.Click, IVonEnabled.Click, IVotingEnabled.Click, IServerConsoleLogEnabled.Click,
+    Private Sub ToggleUi(uiElement As Object, Optional e As RoutedEventArgs = Nothing) Handles IHeadlessClientEnabled.Click, IVonEnabled.Click, IServerConsoleLogEnabled.Click,
                                                                                                IPidEnabled.Click, IRankingEnabled.Click, IRequiredBuildEnabled.Click, IPersistentBattlefield.Click,
                                                                                                IMaxPacketLossEnabled.Click, IDisconnectTimeOutEnabled.Click, IKickOnSlowNetworkEnabled.Click, IMaxPingEnabled.Click,
                                                                                                IMaxDesyncEnabled.Click, IManualMissions.Click ', IAutoRestartEnabled.Click,IDailyRestartAEnabled.Click, IDailyRestartBEnabled.Click
@@ -288,16 +288,6 @@ Class ServerProfile
                 Else
                     IVonGroup.IsEnabled = False
                     IVonEnabled.ToolTip = "Enable VON"
-                End If
-            Case "IVotingEnabled"
-                If IVotingEnabled.IsChecked Then
-                    IVotingMinPlayers.IsEnabled = True
-                    IVotingThreshold.IsEnabled = True
-                    IVotingEnabled.ToolTip = "Disable Voting"
-                Else
-                    IVotingMinPlayers.IsEnabled = False
-                    IVotingThreshold.IsEnabled = False
-                    IVotingEnabled.ToolTip = "Enable Voting"
                 End If
             'Case "IAutoRestartEnabled"
             '    If IAutoRestartEnabled.IsChecked Then
@@ -684,14 +674,28 @@ Class ServerProfile
             configLines.Add("localClient[] = {""" & local & """};")
         End If
 
-        If IVotingEnabled.IsChecked Then
-            configLines.Add("voteMissionPlayers = " & IVotingMinPlayers.Text & ";")
-            configLines.Add("voteThreshold = " & IVotingThreshold.Text / 100 & ";")
-        Else
-            configLines.Add("allowedVotedAdminCmds[] = {};")
+        If IAllowedVoteCmds.Text = String.Empty Then
             configLines.Add("allowedVoteCmds[] = {};")
+        Else
+            configLines.Add(IAllowedVoteCmds.Text)
+        End If
+
+        If IAllowedVotedAdminCmds.Text = String.Empty Then
+            configLines.Add("allowedVotedAdminCmds[] = {};")
+        Else
+            configLines.Add(IAllowedVotedAdminCmds.Text)
+        End If
+
+        If IVotingMinPlayers.Text = String.Empty Then
             configLines.Add("voteMissionPlayers = 1;")
+        Else
+            configLines.Add("voteMissionPlayers = " & IVotingMinPlayers.Text & ";")
+        End If
+
+        If IVotingThreshold.Text = String.Empty Then
             configLines.Add("voteThreshold = 0;")
+        Else
+            configLines.Add("voteThreshold = " & IVotingThreshold.Text / 100 & ";")
         End If
 
         If ILoopback.IsChecked Then
@@ -910,7 +914,6 @@ Class ServerProfile
         'If IDailyRestartB.SelectedTime IsNot Nothing Then
         '    profile.DailyRestartB = IDailyRestartB.SelectedTime
         'End If
-        profile.VotingEnabled = IVotingEnabled.IsChecked
         profile.VotingMinPlayers = IVotingMinPlayers.Text
         profile.VotingThreshold = IVotingThreshold.Text
         profile.AllowFilePatching = IAllowFilePatching.Text
@@ -990,6 +993,8 @@ Class ServerProfile
         profile.OnDifferentData = IOnDifferentData.Text
         profile.OnUnsignedData = IOnUnsignedData.Text
         profile.RegularCheck = IRegularCheck.Text
+        profile.allowedVoteCmds = IAllowedVoteCmds.Text
+        profile.allowedVotedAdminCmds = IAllowedVotedAdminCmds.Text
         profile.ServerMods = IServerModsList.SelectedValue
         profile.ClientMods = IClientModsList.SelectedValue
         profile.HeadlessMods = IHeadlessModsList.SelectedValue

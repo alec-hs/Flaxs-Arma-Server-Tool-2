@@ -11,17 +11,17 @@ Public Class LocalMods
 
     'Manages actions for steam mods tab buttons
     Private Sub IActionButtons_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles IModActionButtons.SelectionChanged
-        
-        If IRefreshList.IsSelected
+
+        If IRefreshList.IsSelected Then
             UpdateModsView()
-        'ElseIf IAddLocalMod.IsSelected
-        '    SteamMod.AddLocalMod()
-        ElseIf IEditFolders.IsSelected
+            'ElseIf IAddLocalMod.IsSelected
+            '    SteamMod.AddLocalMod()
+        ElseIf IEditFolders.IsSelected Then
             MainWindow.Instance.IMainContent.SelectedIndex = 3
             MainWindow.Instance.ILocalModsTabSelect.IsSelected = False
             MainWindow.Instance.ISettingsTabSelect.IsSelected = True
         End If
-        
+
         Dim thread As New Thread(
             Sub()
                 Thread.Sleep(600)
@@ -54,7 +54,7 @@ Public Class LocalMods
         For Each remove In modsToRemove
             serverPathMods.RemoveAt(serverPathMods.IndexOf(serverPathMods.Find(Function(m) m.Name = remove.Name)))
         Next
-       
+
         localMods.AddRange(serverPathMods)
 
         If localMods IsNot Nothing
