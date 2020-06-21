@@ -6,7 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 
              FontFamily="{DynamicResource MaterialDesignFont}"
-             
+
 
              TextElement.FontWeight="Regular"
              TextElement.FontSize="11"
@@ -38,13 +38,13 @@
                 <TextBlock Grid.Row="0" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Margin="16">About FAST2</TextBlock>
                 <TextBlock Grid.Row="0" Name="IVersionLabel" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="16">Version:</TextBlock>
                 <TextBlock Grid.Row="1" Margin="16,0" TextWrapping="Wrap" FontSize="13" TextAlignment="Justify">
-                    FAST2 is an extensive rewrite of FAST, which was a project I started to help automate and speed 
-                    up the deployment of Arma 3 servers on Windows. The UI needed updating and the code was messy and 
+                    FAST2 is an extensive rewrite of FAST, which was a project I started to help automate and speed
+                    up the deployment of Arma 3 servers on Windows. The UI needed updating and the code was messy and
                     inefficient. This new and hopefully improved version has more features and better stability than FAST.
                 </TextBlock>
                 <TextBlock Grid.Row="2" Margin="16,12,16,0" TextWrapping="Wrap" FontSize="13" TextAlignment="Justify">
-                    Thanks go out to all the guys who helped test this version before release with special mentions to Kju and JamieKG for their continuous 
-                    bug reports and testing. Also to BI for giving us an awesome game to play with and break. 
+                    Thanks go out to all the guys who helped test this version before release with special mentions to Kju and JamieKG for their continuous
+                    bug reports and testing. Also to BI for giving us an awesome game to play with and break.
                 </TextBlock>
                 <TextBlock Grid.Row="3" Margin="16" TextWrapping="Wrap" FontSize="13" TextAlignment="Center" VerticalAlignment="Bottom">
                     THIS TOOL IS IN NO WAY AFFILIATED WITH BOHEMIA INTERACTIVE AND ITS DEVELOPERS
@@ -77,7 +77,7 @@
                         </Grid.ColumnDefinitions>
                         <Button Grid.Column="0" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Center"  Name="IGitHubButton">
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="GithubCircle" />
+                                <materialDesign:PackIcon Kind="Github" />
                                 <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">GitHub</TextBlock>
                             </StackPanel>
                         </Button>
@@ -108,7 +108,7 @@
                     <ColumnDefinition Width="200" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <materialDesign:PackIcon Kind="GithubCircle" Width="172" Height="172" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <materialDesign:PackIcon Kind="Github" Width="172" Height="172" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <StackPanel Grid.Row="0" Grid.Column="1">
                     <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="16 16 16 8">Open Source</TextBlock>
                     <TextBlock TextWrapping="Wrap" Margin="16 0 16 8" Foreground="{DynamicResource MaterialDesignBodyLight}"
