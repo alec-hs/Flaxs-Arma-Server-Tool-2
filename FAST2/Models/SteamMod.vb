@@ -116,7 +116,7 @@ Namespace Models
             Dim modName = modInfo.SelectToken("title")
             Dim steamUpdateTime = modInfo.SelectToken("time_updated")
 
-            If modInfo.SelectToken("creator_appid") = "107410" Then
+            If modInfo.SelectToken("consumer_appid") = "107410" Then
                 Return New Tuple(Of String, String, String)(modName, author, steamUpdateTime)
             Else
                 Return Nothing
