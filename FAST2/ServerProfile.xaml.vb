@@ -1146,5 +1146,9 @@ Class ServerProfile
             IDuplicateServerProfileDialog.IsOpen = False
             IDuplicateProfileName.Text = String.Empty
         End If
+
+    Private Sub ErrorToSend_TextChanged(sender As Object, e As TextChangedEventArgs) Handles IMinErrorToSend.TextChanged, IMinErrorToSendNear.TextChanged
+        sender.Text = Replace(sender.Text, ",", ".")
+
     End Sub
 End Class
