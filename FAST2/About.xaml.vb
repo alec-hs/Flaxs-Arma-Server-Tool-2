@@ -1,4 +1,6 @@
-﻿Public Class About
+﻿Imports System.Windows
+
+Public Class About
     Private Sub IDiscordButton_Click(sender As Object, e As RoutedEventArgs) Handles IDiscordButton.Click
         Process.Start("https://links.kestrelstudios.co.uk/fast2-discord")
     End Sub

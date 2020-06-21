@@ -3,6 +3,10 @@ Imports System.Net
 Imports System.IO
 Imports System.IO.Compression
 Imports System.Threading
+Imports System.Windows
+Imports System.Windows.Controls
+Imports System.Windows.Input
+Imports System.Windows.Media
 Imports AutoUpdaterDotNET
 Imports FAST2.Models
 Imports WPFFolderBrowser

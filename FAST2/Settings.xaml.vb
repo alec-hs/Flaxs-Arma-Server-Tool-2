@@ -1,4 +1,6 @@
-﻿Imports AutoUpdaterDotNET
+﻿Imports System.Windows
+Imports System.Windows.Controls
+Imports AutoUpdaterDotNET
 Imports FAST2.Models
 
 Class Settings

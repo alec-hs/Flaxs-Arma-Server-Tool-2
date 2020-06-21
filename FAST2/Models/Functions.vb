@@ -2,7 +2,8 @@
 Imports System.IO
 Imports System.Text
 Imports System.Text.RegularExpressions
-Imports System.Windows.Forms
+Imports System.Windows
+Imports System.Windows.Documents
 Imports System.Xml
 Imports System.Xml.Serialization
 
@@ -91,9 +92,9 @@ Namespace Models
                     .Filter = filter
                     }
 
-            If dialog.ShowDialog() <> DialogResult.OK Then
+            If dialog.ShowDialog() <> True Then
                 Return dialog.FileName
-            Else 
+            Else
                 Return Nothing
             End If
         End Function
@@ -113,4 +114,4 @@ Namespace Models
             End If
         End Function
     End Class
-End NameSpace
+End Namespace

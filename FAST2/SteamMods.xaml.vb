@@ -1,5 +1,8 @@
 ﻿Imports System.IO
 Imports System.Threading
+Imports System.Windows
+Imports System.Windows.Controls
+Imports System.Windows.Input
 Imports FAST2.Models
 
 Public Class SteamMods

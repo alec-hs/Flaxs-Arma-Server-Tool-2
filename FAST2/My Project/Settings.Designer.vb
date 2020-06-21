@@ -233,26 +233,26 @@ Partial Friend NotInheritable Class MySettings
     End Property
     
     <Global.System.Configuration.UserScopedSettingAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-    Public Property steamMods() As System.Collections.Generic.List(Of FAST2.Models.steamMod)
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+     Global.System.Configuration.DefaultSettingValueAttribute("")>
+    Public Property steamMods() As System.Collections.Generic.List(Of Models.SteamMod)
         Get
-            Return CType(Me("steamMods"),System.Collections.Generic.List(Of FAST2.Models.steamMod))
+            Return CType(Me("steamMods"), System.Collections.Generic.List(Of Models.SteamMod))
         End Get
         Set
-            Me("steamMods") = value
+            Me("steamMods") = Value
         End Set
     End Property
-    
+
     <Global.System.Configuration.UserScopedSettingAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-    Public Property localMods() As System.Collections.Generic.List(Of FAST2.Models.localMod)
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+     Global.System.Configuration.DefaultSettingValueAttribute("")>
+    Public Property localMods() As System.Collections.Generic.List(Of Models.LocalMod)
         Get
-            Return CType(Me("localMods"),System.Collections.Generic.List(Of FAST2.Models.localMod))
+            Return CType(Me("localMods"), System.Collections.Generic.List(Of Models.LocalMod))
         End Get
         Set
-            Me("localMods") = value
+            Me("localMods") = Value
         End Set
     End Property
 

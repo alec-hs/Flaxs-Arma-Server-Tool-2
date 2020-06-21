@@ -1,4 +1,7 @@
-﻿Imports FAST2.Models
+﻿Imports System.Windows
+Imports System.Windows.Input
+Imports System.Windows.Media
+Imports FAST2.Models
 
 Public Class Setup
 
