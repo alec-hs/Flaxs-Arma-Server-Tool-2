@@ -173,6 +173,7 @@ Class ServerProfile
             ShowRenameInterface(True)
 
         ElseIf IDuplicateProfile.IsSelected Then
+            UpdateProfile()
             ShowDuplicateInterface(True)
 
         ElseIf IDeleteProfile.IsSelected Then
@@ -1136,6 +1137,7 @@ Class ServerProfile
 
         ServerCollection.DuplicateServerProfile(currentProfileName, profileCopy)
 
+        IDuplicateProfileName.Text = String.Empty
         IDuplicateServerProfileDialog.IsOpen = False
     End Sub
 
