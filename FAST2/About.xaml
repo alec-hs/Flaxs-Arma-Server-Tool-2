@@ -77,7 +77,7 @@
                         </Grid.ColumnDefinitions>
                         <Button Grid.Column="0" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Center"  Name="IGitHubButton">
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Github" />
+                                <materialDesign:PackIcon Kind="GithubCircle" />
                                 <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">GitHub</TextBlock>
                             </StackPanel>
                         </Button>
@@ -108,7 +108,7 @@
                     <ColumnDefinition Width="200" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <materialDesign:PackIcon Kind="Github" Width="172" Height="172" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <materialDesign:PackIcon Kind="GithubCircle" Width="172" Height="172" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <StackPanel Grid.Row="0" Grid.Column="1">
                     <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="16 16 16 8">Open Source</TextBlock>
                     <TextBlock TextWrapping="Wrap" Margin="16 0 16 8" Foreground="{DynamicResource MaterialDesignBodyLight}"
