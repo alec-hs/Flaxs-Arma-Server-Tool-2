@@ -380,31 +380,31 @@ Class ServerProfile
         UpdateModsList()
     End Sub
 
-    'Private Property ModsToCopy As String
+    Private Property ModsToCopy As String
 
-    'Private Sub ModsCopy_Click(sender As Controls.Button, e As RoutedEventArgs) Handles IClientModsCopy.Click, IServerModsCopy.Click, IHeadlessModsCopy.Click
-    '    Select Case sender.Name
-    '        Case "IClientModsCopy"
-    '            ModsToCopy = IClientModsList.SelectedValue
-    '        Case "IServerModsCopy"
-    '            ModsToCopy = IServerModsList.SelectedValue
-    '        Case "IHeadlessModsCopy"
-    '            ModsToCopy = IHeadlessModsList.SelectedValue
-    '    End Select
-    'End Sub
+    Private Sub ModsCopy_Click(sender As Controls.Button, e As RoutedEventArgs) Handles IClientModsCopy.Click, IServerModsCopy.Click, IHeadlessModsCopy.Click
+        Select Case sender.Name
+            Case "IClientModsCopy"
+                ModsToCopy = IClientModsList.SelectedValue
+            Case "IServerModsCopy"
+                ModsToCopy = IServerModsList.SelectedValue
+            Case "IHeadlessModsCopy"
+                ModsToCopy = IHeadlessModsList.SelectedValue
+        End Select
+    End Sub
 
-    'Private Sub ModsPaste_Click(sender As Controls.Button, e As RoutedEventArgs) Handles IClientModsPaste.Click, IServerModsPaste.Click, IHeadlessModsPaste.Click
-    '    If ModsToCopy IsNot String.Empty
-    '        Select Case sender.Name
-    '            Case "IServerModsPaste"
-    '                IServerModsList.SelectedValue = ModsToCopy
-    '            Case "IClientModsPaste"
-    '                IClientModsList.SelectedValue = ModsToCopy
-    '            Case "IHeadlessModsPaste"
-    '                IHeadlessModsList.SelectedValue = ModsToCopy
-    '        End Select
-    '    End If
-    'End Sub
+    Private Sub ModsPaste_Click(sender As Controls.Button, e As RoutedEventArgs) Handles IClientModsPaste.Click, IServerModsPaste.Click, IHeadlessModsPaste.Click
+        If ModsToCopy IsNot String.Empty
+            Select Case sender.Name
+                Case "IServerModsPaste"
+                    IServerModsList.SelectedValue = ModsToCopy
+                Case "IClientModsPaste"
+                    IClientModsList.SelectedValue = ModsToCopy
+                Case "IHeadlessModsPaste"
+                    IHeadlessModsList.SelectedValue = ModsToCopy
+            End Select
+        End If
+    End Sub
 
     Private Sub ModsAll_Click(sender As Controls.Button, e As RoutedEventArgs) Handles IServerModsAll.Click, IClientModsAll.Click, IHeadlessModsAll.Click, IAllMissionsButton.Click
         Select Case sender.Name
@@ -993,8 +993,8 @@ Class ServerProfile
         profile.OnDifferentData = IOnDifferentData.Text
         profile.OnUnsignedData = IOnUnsignedData.Text
         profile.RegularCheck = IRegularCheck.Text
-        profile.allowedVoteCmds = IAllowedVoteCmds.Text
-        profile.allowedVotedAdminCmds = IAllowedVotedAdminCmds.Text
+        profile.AllowedVoteCmds = IAllowedVoteCmds.Text
+        profile.AllowedVotedAdminCmds = IAllowedVotedAdminCmds.Text
         profile.ServerMods = IServerModsList.SelectedValue
         profile.ClientMods = IClientModsList.SelectedValue
         profile.HeadlessMods = IHeadlessModsList.SelectedValue
@@ -1119,5 +1119,4 @@ Class ServerProfile
         MainWindow.Instance.IMessageDialog.IsOpen = True
         MainWindow.Instance.IMessageDialogText.Text = "Deleted " & i & " files."
     End Sub
-
 End Class

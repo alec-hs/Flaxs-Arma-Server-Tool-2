@@ -352,12 +352,12 @@
                             <StackPanel Grid.ColumnSpan="5">
                                 <Label Margin="2" Content="Server Only Mods"/>
                                 <Separator Style="{StaticResource MaterialDesignSeparator}" Margin="-8"/>
-                                <!--<Button Name="IServerModsCopy" HorizontalAlignment="Right" Margin="2,-27,5,0" ToolTip="Copy Selected" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
+                                <Button Name="IServerModsCopy" HorizontalAlignment="Right" Margin="2,-27, 65,0" ToolTip="Copy Selected" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
                                     <materialDesign:PackIcon Kind="ContentCopy" Height="10" Width="10"/>
                                 </Button>
                                 <Button Name="IServerModsPaste" HorizontalAlignment="Right" Margin="2,-27,35,0" ToolTip="Paste" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
                                     <materialDesign:PackIcon Kind="ContentPaste" Height="10" Width="10"/>
-                                </Button>-->
+                                </Button>
                                 <Button Name="IServerModsRefresh" HorizontalAlignment="Right" Margin="2,-27,5,0" ToolTip="Refresh Mods" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
                                     <materialDesign:PackIcon Kind="Refresh" Height="10" Width="10"/>
                                 </Button>
@@ -383,12 +383,12 @@
                             <StackPanel Grid.ColumnSpan="5">
                                 <Label Margin="2" Content="Player Required Mods"/>
                                 <Separator Style="{StaticResource MaterialDesignSeparator}" Margin="-8"/>
-                                <!--<Button Name="IClientModsCopy" HorizontalAlignment="Right" Margin="2,-27,5,0" ToolTip="Copy Selected" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
+                                <Button Name="IClientModsCopy" HorizontalAlignment="Right" Margin="2,-27,65,0" ToolTip="Copy Selected" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
                                     <materialDesign:PackIcon Kind="ContentCopy" Height="10" Width="10"/>
                                 </Button>
                                 <Button Name="IClientModsPaste" HorizontalAlignment="Right" Margin="2,-27,35,0" ToolTip="Paste" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
                                     <materialDesign:PackIcon Kind="ContentPaste" Height="10" Width="10"/>
-                                </Button>-->
+                                </Button>
                                 <Button Name="IClientModsRefresh" HorizontalAlignment="Right" Margin="2,-27,5,0" ToolTip="Refresh Mods" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
                                     <materialDesign:PackIcon Kind="Refresh" Height="10" Width="10"/>
                                 </Button>
@@ -414,12 +414,12 @@
                             <StackPanel Grid.ColumnSpan="5">
                                 <Label Margin="2" Content="Headless Client Mods"/>
                                 <Separator Style="{StaticResource MaterialDesignSeparator}" Margin="-8"/>
-                                <!--<Button Name="IHeadlessModsCopy" HorizontalAlignment="Right" Margin="2,-27,5,0" ToolTip="Copy Selected" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
+                                <Button Name="IHeadlessModsCopy" HorizontalAlignment="Right" Margin="2,-27,65,0" ToolTip="Copy Selected" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
                                     <materialDesign:PackIcon Kind="ContentCopy" Height="10" Width="10"/>
                                 </Button>
                                 <Button Name="IHeadlessModsPaste" HorizontalAlignment="Right" Margin="2,-27,35,0" ToolTip="Paste" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
                                     <materialDesign:PackIcon Kind="ContentPaste" Height="10" Width="10"/>
-                                </Button>-->
+                                </Button>
                                 <Button Name="IHeadlessModsRefresh" HorizontalAlignment="Right" Margin="2,-27,5,0" ToolTip="Refresh Mods" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20">
                                     <materialDesign:PackIcon Kind="Refresh" Height="10" Width="10"/>
                                 </Button>
