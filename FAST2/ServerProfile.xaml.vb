@@ -1121,7 +1121,6 @@ Class ServerProfile
     End Sub
 
     Private Sub ErrorToSend_TextChanged(sender As Object, e As TextChangedEventArgs) Handles IMinErrorToSend.TextChanged, IMinErrorToSendNear.TextChanged
-        IMinErrorToSend.Text = Replace(IMinErrorToSend.Text, ",", ".")
-        IMinErrorToSendNear.Text = Replace(IMinErrorToSendNear.Text, ",", ".")
+        sender.Text = Replace(sender.Text, ",", ".")
     End Sub
 End Class
