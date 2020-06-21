@@ -1119,4 +1119,8 @@ Class ServerProfile
         MainWindow.Instance.IMessageDialog.IsOpen = True
         MainWindow.Instance.IMessageDialogText.Text = "Deleted " & i & " files."
     End Sub
+
+    Private Sub ErrorToSend_TextChanged(sender As Object, e As TextChangedEventArgs) Handles IMinErrorToSend.TextChanged, IMinErrorToSendNear.TextChanged
+        sender.Text = Replace(sender.Text, ",", ".")
+    End Sub
 End Class
