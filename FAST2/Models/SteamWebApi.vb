@@ -56,7 +56,7 @@ Namespace Models
         'Calls to Steam API Endpoint and returns the result as JSON Object
         Private Shared Function ApiCall(uri As String) As JObject
             If CheckApiReady() Then
-                ' Create a request for the URL. 
+                ' Create a request for the URL.
                 Dim request As WebRequest = WebRequest.Create(uri)
                 ' Get the response.
                 Dim response As WebResponse = Nothing
