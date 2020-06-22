@@ -172,6 +172,10 @@ Class ServerProfile
         ElseIf IRenameProfile.IsSelected Then
             ShowRenameInterface(True)
 
+        ElseIf IDuplicateProfile.IsSelected Then
+            UpdateProfile()
+            ShowDuplicateInterface(True)
+
         ElseIf IDeleteProfile.IsSelected Then
             ServerCollection.DeleteServerProfile(_safeName)
 
@@ -474,6 +478,10 @@ Class ServerProfile
             IBattleEye.Visibility = Visibility.Visible
             IProfileNameEdit.Visibility = Visibility.Collapsed
         End If
+    End Sub
+
+    Private Sub ShowDuplicateInterface(show As Boolean)
+        IDuplicateServerProfileDialog.IsOpen = True
     End Sub
 
     Private Function ReadyToLaunch(profile As String)
@@ -1004,6 +1012,8 @@ Class ServerProfile
         My.Settings.Save()
     End Sub
 
+
+
     Private Sub UpdateMissionsList()
         Dim currentMissions = IMissionCheckList.Items
         Dim newMissions As New List(Of String)
@@ -1120,7 +1130,25 @@ Class ServerProfile
         MainWindow.Instance.IMessageDialogText.Text = "Deleted " & i & " files."
     End Sub
 
+    Private Sub DuplicateServerProfileButton_Click(sender As Object, e As RoutedEventArgs) Handles IDuplicateProfileButton.Click
+        IDuplicateServerProfileDialog.IsOpen = True
+        Dim currentProfileName = Functions.SafeName(IDisplayName.Content)
+        Dim profileCopy = IDuplicateProfileName.Text
+
+        ServerCollection.DuplicateServerProfile(currentProfileName, profileCopy)
+
+        IDuplicateProfileName.Text = String.Empty
+        IDuplicateServerProfileDialog.IsOpen = False
+    End Sub
+
+    Private Sub IDuplicateServerProfileDialog_KeyUp(sender As Object, e As Input.KeyEventArgs) Handles IDuplicateServerProfileDialog.KeyUp
+        If e.Key = Key.Escape Then
+            IDuplicateServerProfileDialog.IsOpen = False
+            IDuplicateProfileName.Text = String.Empty
+        End If
+    End Sub
     Private Sub ErrorToSend_TextChanged(sender As Object, e As TextChangedEventArgs) Handles IMinErrorToSend.TextChanged, IMinErrorToSendNear.TextChanged
         sender.Text = Replace(sender.Text, ",", ".")
+
     End Sub
 End Class

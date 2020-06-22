@@ -69,6 +69,26 @@ Namespace Models
 
             My.Settings.Save()
         End Sub
+
+        Public Shared Sub DuplicateServerProfile(source As String, destination As String)
+            Dim profiles = GetServerProfiles()
+            Dim sourceProfile = profiles.ServerProfiles.Find(Function(s) s.SafeName = Functions.SafeName(source))
+            Dim newProfile = New ServerProfile(destination, Functions.SafeName(destination))
+
+            For Each p As System.Reflection.PropertyInfo In sourceProfile.GetType().GetProperties()
+                If p.CanRead Then
+                    If p.Name.Equals("SafeName") Or p.Name.Equals("DisplayName") Then
+                        Continue For
+                    End If
+                    newProfile.GetType().GetProperty(p.Name).SetValue(newProfile, p.GetValue(sourceProfile, Nothing))
+                End If
+            Next
+            profiles.ServerProfiles.Add(newProfile)
+
+            My.Settings.Save()
+            MainWindow.Instance.LoadServerProfiles()
+
+        End Sub
     End Class
 
     <Serializable()>
