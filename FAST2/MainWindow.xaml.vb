@@ -572,10 +572,22 @@ Public Class MainWindow
     End Sub
 
     Private Sub ProcessOutputCharacters(output As StreamReader)
-        Dim line = ""
+        Dim line As String = String.Empty
 
         While Not output.EndOfStream
-            UpdateTextBox(output.ReadLine)
+            Dim lineChar = output.Read()
+
+            Select Case lineChar
+                Case 13, 10
+                    line += Chr(lineChar)
+                    UpdateTextBox(line)
+                    line = String.Empty
+                Case -1
+                    Exit Select
+                Case Else
+                    line += Chr(lineChar)
+            End Select
+
         End While
     End Sub
 
