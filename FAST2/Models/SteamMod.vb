@@ -32,9 +32,9 @@ Namespace Models
         Public Shared Function GetSteamMods() As List(Of SteamMod)
             Dim currentSteamMods As New List(Of SteamMod)
 
-            If My.Settings.steamMods IsNot Nothing Then
-                currentSteamMods = My.Settings.steamMods
-            End If
+            'If My.Settings.steamMods IsNot Nothing Then
+            '    currentSteamMods = My.Settings.steamMods
+            'End If
 
             Return currentSteamMods
         End Function
@@ -79,20 +79,20 @@ Namespace Models
                     Try
                         Dim modInfo = GetModInfo(modId)
 
-                        If modInfo IsNot Nothing Then
-                            Dim modName = modInfo.Item1
-                            Dim steamUpdateTime = modInfo.Item3
-                            Dim author = modInfo.Item2
+                        'If modInfo IsNot Nothing Then
+                        '    Dim modName = modInfo.Item1
+                        '    Dim steamUpdateTime = modInfo.Item3
+                        '    Dim author = modInfo.Item2
 
-                            currentMods.Add(New SteamMod(modId, modName, author, steamUpdateTime, 0))
+                        '    currentMods.Add(New SteamMod(modId, modName, author, steamUpdateTime, 0))
 
-                            My.Settings.steamMods = currentMods
-                            My.Settings.Save()
-                        Else
+                        '    My.Settings.steamMods = currentMods
+                        '    My.Settings.Save()
+                        'Else
 
-                            MainWindow.Instance.IMessageDialog.IsOpen = True
-                            MainWindow.Instance.IMessageDialogText.Text = "This is a workshop Item for a different game."
-                        End If
+                        '    MainWindow.Instance.IMessageDialog.IsOpen = True
+                        '    MainWindow.Instance.IMessageDialogText.Text = "This is a workshop Item for a different game."
+                        'End If
                     Catch ex As Exception
                         'MsgBox("An exception occurred:" & vbCrLf & ex.Message)
                     End Try
@@ -125,25 +125,25 @@ Namespace Models
             If My.Settings.steamMods.Count > 0 Then
                 Dim currentMods = My.Settings.steamMods
 
-                For Each steamMod In My.Settings.steamMods
-                    If Not steamMod.PrivateMod Then
-                        Dim modInfo = GetModInfo(steamMod.WorkshopId)
+                'For Each steamMod In My.Settings.steamMods
+                '    If Not steamMod.PrivateMod Then
+                '        Dim modInfo = GetModInfo(steamMod.WorkshopId)
 
-                        If modInfo IsNot Nothing Then
-                            Dim updateMod = currentMods.Find(Function(c) c.WorkshopId = steamMod.WorkshopId)
+                '        If modInfo IsNot Nothing Then
+                '            Dim updateMod = currentMods.Find(Function(c) c.WorkshopId = steamMod.WorkshopId)
 
-                            updateMod.Name = modInfo.Item1
-                            updateMod.Author = modInfo.Item2
-                            updateMod.SteamLastUpdated = modInfo.Item3
+                '            updateMod.Name = modInfo.Item1
+                '            updateMod.Author = modInfo.Item2
+                '            updateMod.SteamLastUpdated = modInfo.Item3
 
-                            If updateMod.SteamLastUpdated > updateMod.LocalLastUpdated And updateMod.Status IsNot "Download Not Complete" Then
-                                updateMod.Status = "Update Required"
-                            ElseIf updateMod.Status IsNot "Download Not Complete" Then
-                                updateMod.Status = "Up to Date"
-                            End If
-                        End If
-                    End If
-                Next
+                '            If updateMod.SteamLastUpdated > updateMod.LocalLastUpdated And updateMod.Status IsNot "Download Not Complete" Then
+                '                updateMod.Status = "Update Required"
+                '            ElseIf updateMod.Status IsNot "Download Not Complete" Then
+                '                updateMod.Status = "Up to Date"
+                '            End If
+                '        End If
+                '    End If
+                'Next
 
                 My.Settings.steamMods = currentMods
                 My.Settings.Save()

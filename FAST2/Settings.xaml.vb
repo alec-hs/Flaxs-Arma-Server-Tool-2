@@ -46,15 +46,15 @@ Class Settings
     End Sub
 
     Private Sub INewLocalFolder_Click(sender As Object, e As RoutedEventArgs) Handles INewLocalFolder.Click
-        My.Settings.localModFolders.Add(MainWindow.SelectFolder())
-        UpdateLocalModFolders()
+        'My.Settings.localModFolders.Add(MainWindow.SelectFolder())
+        'UpdateLocalModFolders()
     End Sub
 
     Private Sub IRemoveLocalFolders_Click(sender As Object, e As RoutedEventArgs) Handles IRemoveLocalFolders.Click
-        For Each folder In ILocalModFolders.SelectedItems
-            My.Settings.localModFolders.Remove(folder)
-        Next
-        UpdateLocalModFolders()
+        'For Each folder In ILocalModFolders.SelectedItems
+        '    My.Settings.localModFolders.Remove(folder)
+        'Next
+        'UpdateLocalModFolders()
     End Sub
     Private Sub IModUpdatesOnLaunch_Checked(sender As Object, e As RoutedEventArgs) Handles IModUpdatesOnLaunch.Click
         My.Settings.checkForModUpdates = IModUpdatesOnLaunch.IsChecked
@@ -68,11 +68,11 @@ Class Settings
     Private Sub UpdateLocalModFolders()
         ILocalModFolders.Items.Clear()
 
-        If My.Settings.localModFolders.Count > 0
-            For Each folder in My.Settings.localModFolders
-                ILocalModFolders.Items.Add(folder)
-            Next
-        End If
+        'If My.Settings.localModFolders.Count > 0
+        '    For Each folder in My.Settings.localModFolders
+        '        ILocalModFolders.Items.Add(folder)
+        '    Next
+        'End If
     End Sub
 
     Private Sub IUpdateApp_Click(sender As Object, e As RoutedEventArgs) Handles IUpdateApp.Click

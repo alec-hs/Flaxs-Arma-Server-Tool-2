@@ -31,11 +31,11 @@ Namespace Models
             End If
 
             If Not serverPathOnly Then
-                For Each folder In My.Settings.localModFolders
-                    If folder IsNot Nothing Then
-                        foldersToSearch.Add(folder)
-                    End If
-                Next
+                'For Each folder In My.Settings.localModFolders
+                '    If folder IsNot Nothing Then
+                '        foldersToSearch.Add(folder)
+                '    End If
+                'Next
             End If
 
             If foldersToSearch.Count > 0 Then

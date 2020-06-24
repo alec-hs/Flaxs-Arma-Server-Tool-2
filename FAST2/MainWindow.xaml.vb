@@ -598,25 +598,25 @@ Public Class MainWindow
     Private Shared Sub CheckModUpdatesComplete(modIds As IReadOnlyCollection(Of String))
         If modIds IsNot Nothing
             For Each modID in modIds
-                Dim modToUpdate = My.Settings.steamMods.Find(Function(m) m.WorkshopId = modID)
-                Dim steamCmdOutputText = Functions.StringFromRichTextBox(Instance.ISteamOutputBox)
+                'Dim modToUpdate = My.Settings.steamMods.Find(Function(m) m.WorkshopId = modID)
+                'Dim steamCmdOutputText = Functions.StringFromRichTextBox(Instance.ISteamOutputBox)
 
-                If InStr(steamCmdOutputText, "ERROR! Timeout downloading") Then
-                    modToUpdate.Status = "Download Not Complete"
-                Else
-                    Dim modTempPath As String = My.Settings.steamCMDPath & "\steamapps\workshop\downloads\107410\" & modId
-                    Dim modPath As String = My.Settings.steamCMDPath & "\steamapps\workshop\content\107410\" & modId
+                'If InStr(steamCmdOutputText, "ERROR! Timeout downloading") Then
+                '    modToUpdate.Status = "Download Not Complete"
+                'Else
+                '    Dim modTempPath As String = My.Settings.steamCMDPath & "\steamapps\workshop\downloads\107410\" & modId
+                '    Dim modPath As String = My.Settings.steamCMDPath & "\steamapps\workshop\content\107410\" & modId
 
-                    If Directory.Exists(modTempPath) Then
-                        modToUpdate.Status = "Download Not Complete"
-                    ElseIf Directory.GetFiles(modPath).Length <> 0 Then
-                        modToUpdate.Status = "Up to Date"
-                        Dim nx = New DateTime(1970, 1, 1)
-                        Dim ts = Date.UtcNow - nx
+                '    If Directory.Exists(modTempPath) Then
+                '        modToUpdate.Status = "Download Not Complete"
+                '    ElseIf Directory.GetFiles(modPath).Length <> 0 Then
+                '        modToUpdate.Status = "Up to Date"
+                '        Dim nx = New DateTime(1970, 1, 1)
+                '        Dim ts = Date.UtcNow - nx
 
-                        modToUpdate.LocalLastUpdated = ts.TotalSeconds
-                    End If
-                End If
+                '        modToUpdate.LocalLastUpdated = ts.TotalSeconds
+                '    End If
+                'End If
             Next
             My.Settings.Save()
         End If
