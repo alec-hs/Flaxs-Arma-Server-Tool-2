@@ -280,10 +280,12 @@ Class ServerProfile
                     IHcIpGroup.IsEnabled = True
                     IHcSliderGroup.IsEnabled = True
                     IHeadlessClientEnabled.ToolTip = "Disable HC"
+                    ILaunchHeadless.IsEnabled = True
                 Else
                     IHcIpGroup.IsEnabled = False
                     IHcSliderGroup.IsEnabled = False
                     IHeadlessClientEnabled.ToolTip = "Enable HC"
+                    ILaunchHeadless.IsEnabled = False
                 End If
             Case "IVonEnabled"
                 If IVonEnabled.IsChecked Then
@@ -398,7 +400,7 @@ Class ServerProfile
     End Sub
 
     Private Sub ModsPaste_Click(sender As Controls.Button, e As RoutedEventArgs) Handles IClientModsPaste.Click, IServerModsPaste.Click, IHeadlessModsPaste.Click
-        If ModsToCopy IsNot String.Empty
+        If ModsToCopy IsNot String.Empty Then
             Select Case sender.Name
                 Case "IServerModsPaste"
                     IServerModsList.SelectedValue = ModsToCopy
@@ -606,25 +608,35 @@ Class ServerProfile
 
             If IHeadlessClientEnabled.IsChecked Then
                 For hc = 1 To INoOfHeadlessClients.Value
-                    Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & IPassword.Text & " -profiles=" & profilePath & " -nosound -port=" & IPort.Text
-                    Dim hcMods As String = Nothing
-
-                    For Each addon In IHeadlessModsList.SelectedItems
-                        hcMods = hcMods & addon & ";"
-                    Next
-
-                    hcCommandLine = hcCommandLine & " ""-mod=" & hcMods & """"
-
-                    Clipboard.SetText(hcCommandLine)
-
-                    Dim hcStartInfo As New ProcessStartInfo(IExecutable.Text, hcCommandLine)
-                    Dim hcProcess As New Process With {
-                            .StartInfo = hcStartInfo
-                        }
-                    hcProcess.Start()
+                    LaunchHeadlessClient(profilePath)
                 Next
             End If
         End If
+    End Sub
+
+    Private Sub ILaunchHeadless_Click(sender As Object, e As RoutedEventArgs) Handles ILaunchHeadless.Click
+        Dim profileName As String = Functions.SafeName(IDisplayName.Content)
+        Dim profilePath As String = _profilesPath & profileName & "\"
+        LaunchHeadlessClient(profilePath)
+    End Sub
+
+    Private Sub LaunchHeadlessClient(profilePath As String)
+        Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & IPassword.Text & " -profiles=" & profilePath & $" -nosound -port=" & IPort.Text
+        Dim hcMods As String = Nothing
+
+        For Each addon In IHeadlessModsList.SelectedItems
+            hcMods = hcMods & addon & ";"
+        Next
+
+        hcCommandLine = hcCommandLine & " ""-mod=" & hcMods & """"
+
+        Clipboard.SetText(hcCommandLine)
+
+        Dim hcStartInfo As New ProcessStartInfo(IExecutable.Text, hcCommandLine)
+        Dim hcProcess As New Process With {
+                .StartInfo = hcStartInfo
+            }
+        hcProcess.Start()
     End Sub
 
     Private Sub WriteConfigFiles(profile As String)
