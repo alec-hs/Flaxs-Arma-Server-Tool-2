@@ -614,8 +614,14 @@ Class ServerProfile
         End If
     End Sub
 
-    Private Sub LaunchHeadlessClient(profile_path As String)
-        Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & IPassword.Text & " -profiles=" & profile_path & " -nosound -port=" & IPort.Text
+    Private Sub ILaunchHeadless_Click(sender As Object, e As RoutedEventArgs) Handles ILaunchHeadless.Click
+        Dim profileName As String = Functions.SafeName(IDisplayName.Content)
+        Dim profilePath As String = _profilesPath & profileName & "\"
+        LaunchHeadlessClient(profilePath)
+    End Sub
+
+    Private Sub LaunchHeadlessClient(profilePath As String)
+        Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & IPassword.Text & " -profiles=" & profilePath & $" -nosound -port=" & IPort.Text
         Dim hcMods As String = Nothing
 
         For Each addon In IHeadlessModsList.SelectedItems
