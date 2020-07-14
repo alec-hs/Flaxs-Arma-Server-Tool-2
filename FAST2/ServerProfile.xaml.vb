@@ -280,10 +280,12 @@ Class ServerProfile
                     IHcIpGroup.IsEnabled = True
                     IHcSliderGroup.IsEnabled = True
                     IHeadlessClientEnabled.ToolTip = "Disable HC"
+                    ILaunchHeadless.IsEnabled = True
                 Else
                     IHcIpGroup.IsEnabled = False
                     IHcSliderGroup.IsEnabled = False
                     IHeadlessClientEnabled.ToolTip = "Enable HC"
+                    ILaunchHeadless.IsEnabled = False
                 End If
             Case "IVonEnabled"
                 If IVonEnabled.IsChecked Then
@@ -398,7 +400,7 @@ Class ServerProfile
     End Sub
 
     Private Sub ModsPaste_Click(sender As Controls.Button, e As RoutedEventArgs) Handles IClientModsPaste.Click, IServerModsPaste.Click, IHeadlessModsPaste.Click
-        If ModsToCopy IsNot String.Empty
+        If ModsToCopy IsNot String.Empty Then
             Select Case sender.Name
                 Case "IServerModsPaste"
                     IServerModsList.SelectedValue = ModsToCopy

@@ -20,10 +20,10 @@
     Title="FAST"
     Icon="FAST-main-icon.ico"
 
-    Height="600"
+    Height="650"
     Width="1000"
     MinWidth="1000"
-    MinHeight="600"
+    MinHeight="650"
 
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"

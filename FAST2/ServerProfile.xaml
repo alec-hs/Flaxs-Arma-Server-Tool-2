@@ -18,7 +18,7 @@
 
 
              mc:Ignorable="d"
-             d:DesignHeight="570.4"
+             d:DesignHeight="620.4"
              d:DesignWidth="796.8">
 
 
@@ -105,8 +105,17 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <StackPanel Grid.ColumnSpan="2">
-                                <Label Margin="2" Content="Headless Client"/>
-                                <ToggleButton Name="IHeadlessClientEnabled" Style="{StaticResource MaterialDesignSwitchToggleButton}" IsChecked="False" HorizontalAlignment="Right" Margin="2,-25,5,0" ToolTip="Enable HC"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="120"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Margin="1" Content="Headless Client"/><Button Grid.Column="2" Name="ILaunchHeadless" Height="20" Width="20" Margin="5" FontSize="10" ToolTip="Launch a HC" IsEnabled="False">
+                                        <materialDesign:PackIcon Kind="Play" Width="12" Height="12" Margin="-12,0,-15,0"/>
+                                    </Button>
+                                    <ToggleButton Grid.Column="2" Name="IHeadlessClientEnabled" Style="{StaticResource MaterialDesignSwitchToggleButton}" IsChecked="False" HorizontalAlignment="Right" Margin="0,0,5,0" ToolTip="Enable HC"/>
+                                </Grid>
                                 <Separator Style="{StaticResource MaterialDesignSeparator}" Margin="-8"/>
                             </StackPanel>
 
@@ -135,9 +144,8 @@
                                 <Label Margin="2" Content="Network"/>
                                 <Separator Style="{StaticResource MaterialDesignSeparator}" Margin="-8"/>
                             </StackPanel>
-
                             <CheckBox Name="ILoopback" Grid.Row="1" Style="{StaticResource MaterialDesignCheckBox}" Content="Loopback" Foreground="{DynamicResource MaterialDesignBody}" Margin="5"/>
-                            <CheckBox Name="IUpnp" Grid.Row="2" Style="{StaticResource MaterialDesignCheckBox}" Content="UPNP" Foreground="{DynamicResource MaterialDesignBody}" Margin="5"/>
+                            <CheckBox Name="IUPNP" Grid.Row="2" Style="{StaticResource MaterialDesignCheckBox}" Content="UPNP" Foreground="{DynamicResource MaterialDesignBody}" Margin="5"/>
                             <CheckBox Name="INetlog" Grid.Row="3" Style="{StaticResource MaterialDesignCheckBox}" Content="Netlog" Foreground="{DynamicResource MaterialDesignBody}" Margin="5"/>
                         </Grid>
                     </materialDesign:Card>
