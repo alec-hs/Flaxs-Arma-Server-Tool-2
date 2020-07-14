@@ -605,30 +605,30 @@ Class ServerProfile
             sProcess.Start()
 
             If IHeadlessClientEnabled.IsChecked Then
-                LaunchHeadlessClient(profilePath)
+                For hc = 1 To INoOfHeadlessClients.Value
+                    LaunchHeadlessClient(profilePath)
+                Next
             End If
         End If
     End Sub
 
     Private Sub LaunchHeadlessClient(profile_path As String)
-        For hc = 1 To INoOfHeadlessClients.Value
-            Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & IPassword.Text & " -profiles=" & profile_path & " -nosound -port=" & IPort.Text
-            Dim hcMods As String = Nothing
+        Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & IPassword.Text & " -profiles=" & profile_path & " -nosound -port=" & IPort.Text
+        Dim hcMods As String = Nothing
 
-            For Each addon In IHeadlessModsList.SelectedItems
-                hcMods = hcMods & addon & ";"
-            Next
-
-            hcCommandLine = hcCommandLine & " ""-mod=" & hcMods & """"
-
-            Clipboard.SetText(hcCommandLine)
-
-            Dim hcStartInfo As New ProcessStartInfo(IExecutable.Text, hcCommandLine)
-            Dim hcProcess As New Process With {
-                    .StartInfo = hcStartInfo
-                }
-            hcProcess.Start()
+        For Each addon In IHeadlessModsList.SelectedItems
+            hcMods = hcMods & addon & ";"
         Next
+
+        hcCommandLine = hcCommandLine & " ""-mod=" & hcMods & """"
+
+        Clipboard.SetText(hcCommandLine)
+
+        Dim hcStartInfo As New ProcessStartInfo(IExecutable.Text, hcCommandLine)
+        Dim hcProcess As New Process With {
+                .StartInfo = hcStartInfo
+            }
+        hcProcess.Start()
     End Sub
 
     Private Sub WriteConfigFiles(profile As String)
