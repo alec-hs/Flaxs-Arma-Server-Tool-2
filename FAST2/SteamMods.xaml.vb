@@ -242,6 +242,8 @@ Public Class SteamMods
                 IModView.Items.Add(steamMod)
             Next
         End If
+
+        ISteamModsCountLabel.Content = "Mods Count: " & My.Settings.steamMods.Count
     End Sub
 
     Private Sub DeleteMod(sender As Object, e As RoutedEventArgs)

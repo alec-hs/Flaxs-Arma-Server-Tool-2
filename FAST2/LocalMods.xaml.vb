@@ -57,11 +57,13 @@ Public Class LocalMods
 
         localMods.AddRange(serverPathMods)
 
-        If localMods IsNot Nothing
+        If localMods IsNot Nothing Then
             For Each localMod In localMods
                 ILocalModsView.Items.Add(localMod)
             Next
         End If
+
+        ILocalModsCountLabel.Content = "Mods Count: " & ILocalModsView.Items.Count
     End Sub
 
     Private Sub DeleteMod(sender As Object, e As RoutedEventArgs)
