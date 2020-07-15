@@ -112,28 +112,28 @@
       <HintPath>..\packages\MaterialDesignThemes.3.0.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AppCenter.3.2.2\lib\net461\Microsoft.AppCenter.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AppCenter.3.3.0\lib\net461\Microsoft.AppCenter.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Analytics, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AppCenter.Analytics.3.2.2\lib\net461\Microsoft.AppCenter.Analytics.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AppCenter.Analytics.3.3.0\lib\net461\Microsoft.AppCenter.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Crashes, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AppCenter.Crashes.3.2.2\lib\net461\Microsoft.AppCenter.Crashes.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AppCenter.Crashes.3.3.0\lib\net461\Microsoft.AppCenter.Crashes.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.0.2.669, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.2.0.2\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.0.3.851, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.2.0.3\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
-    <Reference Include="SQLitePCLRaw.core, Version=2.0.2.669, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.core.2.0.2\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.core, Version=2.0.3.851, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.2.0.3\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
     </Reference>
-    <Reference Include="SQLitePCLRaw.nativelibrary, Version=2.0.2.669, Culture=neutral, PublicKeyToken=502ed628492ab262, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.2.0.2\lib\net461\SQLitePCLRaw.nativelibrary.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.nativelibrary, Version=2.0.3.851, Culture=neutral, PublicKeyToken=502ed628492ab262, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.2.0.3\lib\net461\SQLitePCLRaw.nativelibrary.dll</HintPath>
     </Reference>
-    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.0.2.669, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.0.2\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.0.3.851, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.0.3\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -172,20 +172,20 @@
     <Reference Include="WPFFolderBrowser, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WPFFolderBrowser.1.0.2\lib\WPFFolderBrowser.dll</HintPath>
     </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
     </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
     </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
     </Reference>
-    <Reference Include="Xceed.Wpf.Toolkit, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -337,7 +337,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.0.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.0.1\build\MaterialDesignThemes.targets'))" />
-    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.3\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.3\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets'))" />
   </Target>
-  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.3\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.3\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
 </Project>
