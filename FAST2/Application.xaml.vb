@@ -12,6 +12,6 @@ Class Application
     Protected Overrides Sub OnStartup(ByVal e As StartupEventArgs)
         MyBase.OnStartup(e)
         AppCenter.LogLevel = LogLevel.Verbose
-        'AppCenter.Start(INSERT_APP_SECRET, GetType(Analytics), GetType(Crashes))
+        AppCenter.Start(INSERT_APP_SECRET, GetType(Analytics), GetType(Crashes))
     End Sub
 End Class
