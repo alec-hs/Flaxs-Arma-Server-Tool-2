@@ -18,6 +18,11 @@
              d:DesignWidth="796.8">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
@@ -43,7 +48,10 @@
                 <materialDesign:PackIcon Kind="Pencil"/>
             </ListBoxItem>
         </ListBox>
-        <DataGrid Name="ILocalModsView" Grid.Row="1" Grid.Column="0" Margin="5" CanUserReorderColumns="False" CanUserResizeRows="False" GridLinesVisibility="All" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" ItemsSource="{Binding NotifyOnSourceUpdated=True}" materialDesign:DataGridAssist.CellPadding="2 2 2 2" materialDesign:DataGridAssist.ColumnHeaderPadding="3 3 3 3">
+        <materialDesign:Card Grid.Row="0" Grid.ColumnSpan="1" Grid.Column="1" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Label Name="ILocalModsCountLabel" Content="Mods Count: 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesignBody}"/>
+        </materialDesign:Card>
+        <DataGrid Name="ILocalModsView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="5" CanUserReorderColumns="False" CanUserResizeRows="False" GridLinesVisibility="All" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" ItemsSource="{Binding NotifyOnSourceUpdated=True}" materialDesign:DataGridAssist.CellPadding="2 2 2 2" materialDesign:DataGridAssist.ColumnHeaderPadding="3 3 3 3">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Width="Auto"/>
                 <DataGridTextColumn Header="Author" Binding="{Binding Path=Author}" Width="Auto"/>
