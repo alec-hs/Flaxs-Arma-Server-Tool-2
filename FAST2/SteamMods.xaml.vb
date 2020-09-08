@@ -115,9 +115,7 @@ Public Class SteamMods
                 If modLine.Contains("data-type=""Link"">") Then
                     Dim link As String
                     link = modLine.Substring(modLine.IndexOf("http://steam", StringComparison.Ordinal))
-                    link = StrReverse(link)
-                    link = link.Substring(link.IndexOf("epyt-atad", StringComparison.Ordinal) + 11)
-                    link = StrReverse(link)
+                    link = link.Substring(0, Len(link) - 4)
                     SteamMod.AddSteamMod(link, True)
                 End If
             Loop
