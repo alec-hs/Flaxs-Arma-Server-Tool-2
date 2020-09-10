@@ -7,7 +7,7 @@ Namespace Models
         Private Sub New()
         End Sub
 
-        Private Sub New(workshopId As Int32, name As String, author As String, steamLastUpdated As Int32, Optional privateMod As Boolean = False)
+        Private Sub New(workshopId As Long, name As String, author As String, steamLastUpdated As Int32, Optional privateMod As Boolean = False)
             Me.WorkshopId = workshopId
             Me.Name = name
             Me.Author = author
@@ -15,7 +15,7 @@ Namespace Models
             Me.PrivateMod = privateMod
         End Sub
 
-        Public Property WorkshopId As Integer = Nothing
+        Public Property WorkshopId As Long = Nothing
         Public Property Name As String = String.Empty
         Public Property Author As String = String.Empty
         Public Property SteamLastUpdated As Integer = Nothing
@@ -23,7 +23,7 @@ Namespace Models
         Private Property PrivateMod As Boolean = False
         Public Property Status As String = "Not Installed"
 
-        Public Shared Sub DeleteSteamMod(workshopId As Int32)
+        Public Shared Sub DeleteSteamMod(workshopId As Long)
             Dim currentMods = GetSteamMods()
 
             currentMods.RemoveAll(Function(x) x.WorkshopId = workshopId)

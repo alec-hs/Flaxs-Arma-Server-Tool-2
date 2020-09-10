@@ -24,7 +24,7 @@ Namespace Models
         End Function
 
         'Get mod info for single mod
-        Public Shared Function GetSingleFileDetails(modId As Integer) As JObject
+        Public Shared Function GetSingleFileDetails(modId As Long) As JObject
             Dim response = ApiCall("https://api.steampowered.com/IPublishedFileService/GetDetails/v1?key=" & My.Settings.SteamApiKey & V3 & modId)
 
             Return response.SelectToken("response.publishedfiledetails[0]")

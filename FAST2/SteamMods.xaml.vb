@@ -157,7 +157,7 @@ Public Class SteamMods
         End If
     End Sub
 
-    Private Shared Sub UpdateMod(modId As Int32, modName As String, Optional singleMod As Boolean = True)
+    Private Shared Sub UpdateMod(modId As Long, modName As String, Optional singleMod As Boolean = True)
         If MainWindow.Instance.ReadyToUpdate Then
             Dim modPath As String = My.Settings.steamCMDPath & "\steamapps\workshop\content\107410\" & modId
 
